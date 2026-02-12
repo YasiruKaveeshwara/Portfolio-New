@@ -3,8 +3,6 @@
  * Update this file with your personal details
  */
 
-import { Facebook } from "lucide-react";
-
 export const personalInfo = {
 	// Basic Information
 	fullName: "Yasiru Kaveeshwara",
