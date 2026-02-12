@@ -1,16 +1,38 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Send, CheckCircle, Github, Linkedin } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, Linkedin, Loader2 } from "lucide-react";
 import { contactInfo, contactFormMessages } from "../constants";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
 	const ref = useRef(null);
+	const formRef = useRef<HTMLFormElement>(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 	const [submitted, setSubmitted] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(false);
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		setSubmitted(true);
+		if (!formRef.current) return;
+
+		setLoading(true);
+		setError(false);
+
+		try {
+			await emailjs.sendForm(
+				import.meta.env.VITE_EMAILJS_SERVICE_ID,
+				import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+				formRef.current,
+				import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+			);
+			setSubmitted(true);
+		} catch (err) {
+			console.error("EmailJS error:", err);
+			setError(true);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -93,8 +115,13 @@ const Contact = () => {
 								<h3 className='text-2xl font-bold mb-2'>Message Sent!</h3>
 								<p className='text-muted-foreground text-center'>{contactFormMessages.successMessage}</p>
 							</motion.div>
-						:	<form onSubmit={handleSubmit} className='glass-card rounded-2xl p-8'>
+						:	<form ref={formRef} onSubmit={handleSubmit} className='glass-card rounded-2xl p-8'>
 								<div className='space-y-6'>
+									{error && (
+										<div className='p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm text-center'>
+											{contactFormMessages.errorMessage}
+										</div>
+									)}
 									<div className='grid md:grid-cols-2 gap-6'>
 										<div>
 											<label htmlFor='name' className='block text-sm font-medium mb-2'>
@@ -103,6 +130,7 @@ const Contact = () => {
 											<input
 												type='text'
 												id='name'
+												name='from_name'
 												required
 												className='w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all'
 												placeholder='John Doe'
@@ -115,6 +143,7 @@ const Contact = () => {
 											<input
 												type='email'
 												id='email'
+												name='from_email'
 												required
 												className='w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all'
 												placeholder='john@example.com'
@@ -129,6 +158,7 @@ const Contact = () => {
 										<input
 											type='text'
 											id='subject'
+											name='subject'
 											required
 											className='w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all'
 											placeholder='Project collaboration'
@@ -141,6 +171,7 @@ const Contact = () => {
 										</label>
 										<textarea
 											id='message'
+											name='message'
 											required
 											rows={4}
 											className='w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none'
@@ -150,9 +181,18 @@ const Contact = () => {
 
 									<button
 										type='submit'
-										className='w-full py-4 bg-primary text-primary-foreground font-semibold rounded-xl hover:opacity-90 transition-all hover-glow flex items-center justify-center gap-2'>
-										{contactFormMessages.submitButtonText}
-										<Send className='w-4 h-4' />
+										disabled={loading}
+										className='w-full py-4 bg-primary text-primary-foreground font-semibold rounded-xl hover:opacity-90 transition-all hover-glow flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed'>
+										{loading ?
+											<>
+												Sending...
+												<Loader2 className='w-4 h-4 animate-spin' />
+											</>
+										:	<>
+												{contactFormMessages.submitButtonText}
+												<Send className='w-4 h-4' />
+											</>
+										}
 									</button>
 								</div>
 							</form>
