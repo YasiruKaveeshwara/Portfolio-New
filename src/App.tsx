@@ -8,12 +8,14 @@ import SkillsPage from "./pages/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ResumePage from "./pages/ResumePage";
 import NotFound from "./pages/NotFound";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 const queryClient = new QueryClient();
 
 const App = () => (
 	<QueryClientProvider client={queryClient}>
 		<TooltipProvider>
+			<ParticlesBackground />
 			<Toaster />
 			<Sonner />
 			<BrowserRouter>

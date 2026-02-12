@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const navItems = [
 	{ label: "About", href: "#about" },
@@ -33,10 +34,11 @@ const Navigation = () => {
 			<nav className='container px-6 flex items-center justify-between'>
 				<motion.a
 					href='#'
-					className='text-xl font-bold font-mono text-primary'
+					className='flex items-center text-primary'
 					whileHover={{ scale: 1.05 }}
 					transition={{ type: "spring", stiffness: 400 }}>
-					AC<span className='text-foreground'>.</span>
+					<Logo className='h-8 w-auto' />
+					<span className='ml-2 font-bold text-lg text-foreground'>Yasiru Kaveeshwara</span>
 				</motion.a>
 
 				{/* Desktop nav */}
@@ -65,7 +67,9 @@ const Navigation = () => {
 					onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
 					className='md:hidden p-2 text-foreground'
 					aria-label='Toggle menu'>
-					{isMobileMenuOpen ? <X className='w-6 h-6' /> : <Menu className='w-6 h-6' />}
+					{isMobileMenuOpen ?
+						<X className='w-6 h-6' />
+					:	<Menu className='w-6 h-6' />}
 				</button>
 			</nav>
 
