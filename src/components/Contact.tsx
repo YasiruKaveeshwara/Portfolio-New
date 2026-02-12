@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, Github, Linkedin } from "lucide-react";
 import { contactInfo, contactFormMessages } from "../constants";
 
 const Contact = () => {
@@ -16,7 +16,7 @@ const Contact = () => {
 	return (
 		<section id='contact' className='relative py-32 overflow-hidden'>
 			{/* Background */}
-			<div className='absolute left-1/2 top-0 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl' />
+			<div className='absolute left-1/2 top-0 -translate-x-1/2 w-200 h-100 bg-primary/5 rounded-full blur-3xl' />
 
 			<div className='container px-6' ref={ref}>
 				<motion.div
@@ -43,6 +43,18 @@ const Contact = () => {
 						<p className='text-muted-foreground mb-8 leading-relaxed'>{contactInfo.availability}</p>
 
 						<div className='space-y-6'>
+							<div className='flex items-center gap-4'>
+								<div className='w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center'>
+									<Linkedin className='w-5 h-5 text-primary' />
+								</div>
+								<div>
+									<p className='text-sm text-muted-foreground'>LinkedIn</p>
+									<a href={contactInfo.Linkedin} className='font-medium hover:text-primary transition-colors'>
+										Yasiru Kaveeshwara
+									</a>
+								</div>
+							</div>
+
 							<div className='flex items-center gap-4'>
 								<div className='w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center'>
 									<Mail className='w-5 h-5 text-primary' />
@@ -72,7 +84,7 @@ const Contact = () => {
 						initial={{ opacity: 0, x: 40 }}
 						animate={isInView ? { opacity: 1, x: 0 } : {}}
 						transition={{ delay: 0.3, duration: 0.6 }}>
-						{submitted ? (
+						{submitted ?
 							<motion.div
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
@@ -81,8 +93,7 @@ const Contact = () => {
 								<h3 className='text-2xl font-bold mb-2'>Message Sent!</h3>
 								<p className='text-muted-foreground text-center'>{contactFormMessages.successMessage}</p>
 							</motion.div>
-						) : (
-							<form onSubmit={handleSubmit} className='glass-card rounded-2xl p-8'>
+						:	<form onSubmit={handleSubmit} className='glass-card rounded-2xl p-8'>
 								<div className='space-y-6'>
 									<div className='grid md:grid-cols-2 gap-6'>
 										<div>
@@ -145,7 +156,7 @@ const Contact = () => {
 									</button>
 								</div>
 							</form>
-						)}
+						}
 					</motion.div>
 				</div>
 			</div>

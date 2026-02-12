@@ -8,7 +8,7 @@ const navItems = [
 	{ label: "Skills", href: "/skills" },
 	{ label: "Projects", href: "/projects" },
 	{ label: "Resume", href: "/resume" },
-	{ label: "Contact", href: "#contact" },
+	{ label: "Contact", href: "/#contact" },
 ];
 
 const Navigation = () => {
@@ -32,15 +32,14 @@ const Navigation = () => {
 				isScrolled ? "glass-card py-4" : "py-6"
 			}`}>
 			<nav className='container px-6 flex items-center justify-between'>
-				<a href='/'>
-					<motion.a
-						href='#'
-						className='flex items-center text-primary'
+				<a href='/' className='flex items-center text-primary'>
+					<motion.div
+						className='flex items-center'
 						whileHover={{ scale: 1.05 }}
 						transition={{ type: "spring", stiffness: 400 }}>
 						<Logo className='h-8 w-auto' />
 						<span className='ml-2 font-bold text-lg text-foreground'>Yasiru Kaveeshwara</span>
-					</motion.a>
+					</motion.div>
 				</a>
 
 				{/* Desktop nav */}

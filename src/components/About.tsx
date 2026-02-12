@@ -42,11 +42,12 @@ const About = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.3, duration: 0.6 }}
-							className='text-4xl md:text-5xl font-bold mb-6'>
-							Passionate about
-							<span className='gradient-text'> building</span>
-							<br />
-							the future of web
+							className='text-4xl md:text-5xl font-bold mb-6 leading-tight'>
+							Engineering
+							<span className='gradient-text'> Scalable Systems </span>
+							<br className='hidden md:block' />
+							by Simplifying
+							<span className='gradient-text'> Complex Logic </span>
 						</motion.h2>
 
 						<motion.p

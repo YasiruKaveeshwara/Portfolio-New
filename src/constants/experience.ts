@@ -1,6 +1,6 @@
 /**
  * Work Experience Data
- * Add, remove, or update your work experience
+ * Updated with Freelance history and VXD Internship
  */
 
 export interface WorkExperience {
@@ -13,33 +13,20 @@ export interface WorkExperience {
 
 export const experiences: WorkExperience[] = [
 	{
-		title: "Senior Software Engineer",
-		company: "Tech Corp",
-		period: "2022 - Present",
+		title: "Software Engineering Intern",
+		company: "Visionex Digital (pvt) Ltd",
+		period: "2025 April - December (9 months)",
 		description:
-			"Leading development of microservices architecture, mentoring junior developers, and implementing CI/CD pipelines.",
-		technologies: ["React", "Node.js", "AWS", "Docker"],
+			"Collaborated with the development team to build and optimize web components. Gained hands-on experience in a professional environment, moving from theoretical concepts to shipping production-ready features and improving system reliability.",
+		technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Git"],
 	},
 	{
-		title: "Software Engineer",
-		company: "StartupXYZ",
-		period: "2020 - 2022",
-		description: "Built scalable web applications and RESTful APIs. Improved application performance by 40%.",
-		technologies: ["TypeScript", "Next.js", "PostgreSQL", "Redis"],
-	},
-	{
-		title: "Junior Developer",
-		company: "Digital Agency",
-		period: "2018 - 2020",
-		description: "Developed responsive websites and e-commerce solutions for various clients.",
-		technologies: ["JavaScript", "React", "CSS", "Firebase"],
-	},
-	{
-		title: "Software Development Intern",
-		company: "Innovation Labs",
-		period: "2017 - 2018",
-		description: "Assisted in building internal tools and learned industry best practices.",
-		technologies: ["Python", "Django", "MySQL"],
+		title: "Freelance Web Developer",
+		company: "Self-Employed",
+		period: "2024 - Present",
+		description:
+			"Designing and developing custom full-stack solutions for various clients. I focus on building responsive web applications from the ground up, managing everything from database architecture to frontend deployment while ensuring high performance and clean code.",
+		technologies: ["Next.js", "Springboot", "Firebase", "Tailwind CSS", "Auth0"],
 	},
 ];
 

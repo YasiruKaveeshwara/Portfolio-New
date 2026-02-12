@@ -21,7 +21,7 @@ const Skills = () => {
 	return (
 		<section id='skills' className='relative py-32 overflow-hidden'>
 			{/* Background */}
-			<div className='absolute left-0 top-0 w-full h-full'>
+			<div className='absolute left-0 top-0 w-full h-full pointer-events-none'>
 				<div className='absolute top-1/2 left-1/4 w-100 h-100 bg-primary/5 rounded-full blur-3xl' />
 			</div>
 

@@ -18,7 +18,7 @@ export const skillCategories: SkillCategory[] = [
 		title: "Web Development",
 		skills: [
 			{ name: "React.js", icon: "devicon-react-original colored" },
-			{ name: "Next.js", icon: "devicon-nextjs-original colored" },
+			{ name: "Next.js", icon: "devicon-nextjs-original-wordmark" },
 			{ name: "Three.js", icon: "devicon-threejs-original" },
 			{ name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
 			{ name: "Node.js", icon: "devicon-nodejs-plain colored" },

@@ -148,7 +148,7 @@ const ProjectsPage = () => {
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
 										className='group p-6 glass-card rounded-2xl hover-glow transition-all duration-500'>
-										<div className='aspect-video overflow-hidden rounded-lg mb-4'>
+										<div className='aspect-9/16 max-h-100 overflow-hidden rounded-lg mb-4 mx-auto'>
 											<img
 												src={project.image}
 												alt={project.title}

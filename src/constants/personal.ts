@@ -18,10 +18,10 @@ export const personalInfo = {
 	// Social Media Links
 	social: {
 		github: "https://github.com/YasiruKaveeshwara",
-		linkedin: "https://linkedin.com/in/kveeshwaray",
+		linkedin: "https://linkedin.com/in/kaveeshwaray",
 		whatsapp: "https://wa.me/94701181568",
-		facebook: "https://facebook.com/kveeshwaray",
-		instagram: "https://instagram.com/kveeshwaray",
+		facebook: "https://facebook.com/kaveeshwaray",
+		instagram: "https://instagram.com/kaveeshwaray",
 	},
 
 	// Professional Summary

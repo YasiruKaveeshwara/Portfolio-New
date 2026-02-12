@@ -32,11 +32,13 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 			<p className='text-muted-foreground text-sm mb-4 line-clamp-2'>{project.description}</p>
 
 			<div className='flex items-center gap-3'>
-				<a
-					href={project.link}
-					className='inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline'>
-					Live Demo <ArrowUpRight className='w-4 h-4' />
-				</a>
+				{project.link && (
+					<a
+						href={project.link}
+						className='inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline'>
+						Live Demo <ArrowUpRight className='w-4 h-4' />
+					</a>
+				)}
 				<a
 					href={project.github}
 					className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
@@ -67,7 +69,7 @@ const Projects = () => {
 					className='text-center mb-16'>
 					<span className='inline-block text-primary font-mono text-sm mb-4'>— Featured Work</span>
 					<h2 className='text-4xl md:text-5xl font-bold mb-6'>
-						Selected <span className='gradient-text'>Projects</span>
+						Featured <span className='gradient-text'>Projects</span>
 					</h2>
 					<p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
 						A showcase of my recent work, spanning web applications, mobile apps, and more
@@ -75,43 +77,23 @@ const Projects = () => {
 				</motion.div>
 
 				{/* Featured projects */}
-				<div className='grid lg:grid-cols-2 gap-6 mb-12'>
-					{getFeaturedProjects().map((project, i) => (
-						<ProjectCard key={project.title} project={project} isInView={isInView} delay={0.2 + i * 0.15} />
-					))}
-				</div>
+				{/* <div className='grid lg:grid-cols-2 gap-6 mb-12'>
+					{getFeaturedProjects()
+						.slice(0, 3)
+						.map((project, i) => (
+							<ProjectCard key={project.title} project={project} isInView={isInView} delay={0.2 + i * 0.15} />
+						))}
+				</div> */}
 
-				{/* Web Projects Section */}
 				{webProjects.length > 0 && (
 					<motion.div
 						initial={{ opacity: 0, y: 40 }}
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{ delay: 0.4, duration: 0.6 }}
 						className='mb-16'>
-						<h3 className='text-2xl md:text-3xl font-bold mb-8'>
-							Web <span className='gradient-text'>Applications</span>
-						</h3>
 						<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-							{webProjects.map((project, i) => (
+							{webProjects.slice(0, 3).map((project, i) => (
 								<ProjectCard key={project.title} project={project} isInView={isInView} delay={0.5 + i * 0.1} />
-							))}
-						</div>
-					</motion.div>
-				)}
-
-				{/* Mobile Apps Section */}
-				{mobileProjects.length > 0 && (
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={isInView ? { opacity: 1, y: 0 } : {}}
-						transition={{ delay: 0.6, duration: 0.6 }}
-						className='mb-12'>
-						<h3 className='text-2xl md:text-3xl font-bold mb-8'>
-							Mobile <span className='gradient-text'>Apps</span>
-						</h3>
-						<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-							{mobileProjects.map((project, i) => (
-								<ProjectCard key={project.title} project={project} isInView={isInView} delay={0.7 + i * 0.1} />
 							))}
 						</div>
 					</motion.div>

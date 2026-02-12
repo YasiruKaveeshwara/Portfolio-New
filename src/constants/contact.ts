@@ -4,32 +4,29 @@
  */
 
 export const contactInfo = {
-	email: "alex.chen@example.com",
-	phone: "+1 (555) 123-4567",
-	location: "San Francisco, CA, USA",
+	email: "kaveeshwaray@gmail.com",
+	phone: "+94 70 118 1568",
+	location: "Gampaha, Sri Lanka",
 	availability: "Currently available for freelance work and full-time opportunities",
+	Linkedin: "https://linkedin.com/in/kaveeshwaray",
 };
 
 export const socialLinks = [
 	{
 		platform: "GitHub",
 		icon: "Github",
-		url: "https://github.com",
+		url: "https://github.com/YasiruKaveeshwara",
 	},
 	{
 		platform: "LinkedIn",
 		icon: "Linkedin",
-		url: "https://linkedin.com",
+		url: "https://linkedin.com/in/kaveeshwaray",
 	},
-	{
-		platform: "Twitter",
-		icon: "Twitter",
-		url: "https://twitter.com",
-	},
+
 	{
 		platform: "Email",
 		icon: "Mail",
-		url: "mailto:alex.chen@example.com",
+		url: "mailto:kaveeshwaray@gmail.com",
 	},
 ];
 
