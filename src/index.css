@@ -113,6 +113,14 @@
 }
 
 /*
+ * Container centering
+ */
+.container {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*
  * CSS variable definitions (design tokens)
  */
 :root {

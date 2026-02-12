@@ -3,22 +3,25 @@
  * Update this file with your personal details
  */
 
+import { Facebook } from "lucide-react";
+
 export const personalInfo = {
 	// Basic Information
 	fullName: "Yasiru Kaveeshwara",
-	title: "Full Stack Developer",
+	title: "Software Engineer | Full-Stack Developer",
 
 	// Contact Information
 	email: "kveeshwaray@gmail.com",
-	phone: "+1 (555) 123-4567",
+	phone: "+94 70 118 1568",
 	location: "Gampaha, Sri Lanka",
 
 	// Social Media Links
 	social: {
-		github: "https://github.com",
-		linkedin: "https://linkedin.com",
-		twitter: "https://twitter.com",
-		portfolio: "https://yourportfolio.com",
+		github: "https://github.com/YasiruKaveeshwara",
+		linkedin: "https://linkedin.com/in/kveeshwaray",
+		whatsapp: "https://wa.me/94701181568",
+		facebook: "https://facebook.com/kveeshwaray",
+		instagram: "https://instagram.com/kveeshwaray",
 	},
 
 	// Professional Summary
@@ -29,14 +32,4 @@ export const personalInfo = {
 
 	// Availability
 	isAvailableForWork: true,
-
-	// Personal Interests/Likes
-	interests: [
-		"Web Development",
-		"Cloud Architecture",
-		"Open Source",
-		"Teaching & Mentoring",
-		"Tech Blogging",
-		"Photography",
-	],
 };

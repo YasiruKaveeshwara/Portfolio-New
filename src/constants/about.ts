@@ -4,37 +4,36 @@
  */
 
 export const aboutStats = [
-	{ value: "5+", label: "Years Experience" },
+	{ value: "1", label: "Internship Completed" },
 	{ value: "50+", label: "Projects Completed" },
-	{ value: "20+", label: "Happy Clients" },
-	{ value: "10k+", label: "Lines of Code" },
 ];
 
 export const aboutDescription = {
-	shortBio: "I'm a full-stack developer focused on building modern, scalable web applications.",
+	shortBio:
+		"Software Engineering Undergraduate and MERN Stack Developer. I build scalable web applications and explore the intersection of full-stack development and machine learning.",
 	longBio:
-		"With over 5 years of experience in web development, I've worked with diverse teams to create innovative solutions. My expertise spans frontend and backend technologies, and I'm passionate about clean code, performance optimization, and mentoring junior developers.",
+		"I'm a software engineering student with a deep interest in building functional, user-centric web applications. My experience centers on the MERN stack, having moved from academic theory to real-world projects and internship roles. Beyond the code, I’ve always been fascinated by the laws of physics and the vastness of space. I enjoy applying first principles thinking often found in astrophysical theories and complex physical systems to software architecture and creative problem solving. For me, coding is just another way to explore and organize the logic of the universe. I thrive on solving complex technical challenges and building efficient, scalable solutions.",
 };
 
 export const highlights = [
 	{
+		icon: "Layers" as const,
+		title: "Full Stack Mastery",
+		desc: "End-to-end development using the MERN stack",
+	},
+	{
+		icon: "Compass" as const,
+		title: "First Principles",
+		desc: "Solving complex problems from the ground up",
+	},
+	{
 		icon: "Code2" as const,
-		title: "Clean Code",
-		desc: "Writing maintainable, scalable code",
+		title: "Maintainable Systems",
+		desc: "Focusing on clean, readable, and scalable code",
 	},
 	{
 		icon: "Zap" as const,
-		title: "Performance",
-		desc: "Optimizing for speed & efficiency",
-	},
-	{
-		icon: "Layers" as const,
-		title: "Full Stack",
-		desc: "Frontend to backend expertise",
-	},
-	{
-		icon: "Cpu" as const,
-		title: "Modern Tech",
-		desc: "Using cutting-edge technologies",
+		title: "Project Ready",
+		desc: "Experienced in moving from theory to production",
 	},
 ];

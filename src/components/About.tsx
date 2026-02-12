@@ -2,14 +2,15 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import React from "react";
-import { Code2, Cpu, Layers, Zap } from "lucide-react";
-import { aboutStats, highlights } from "../constants";
+import { Code2, Cpu, Layers, Zap, Compass } from "lucide-react";
+import { aboutStats, highlights, aboutDescription } from "../constants";
 
 const iconMap = {
 	Code2,
 	Zap,
 	Layers,
 	Cpu,
+	Compass,
 } as const;
 
 const About = () => {
@@ -19,7 +20,7 @@ const About = () => {
 	return (
 		<section id='about' className='relative py-32 overflow-hidden'>
 			{/* Background accent */}
-			<div className='absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl' />
+			<div className='absolute right-0 top-1/2 -translate-y-1/2 w-125 h-125 bg-primary/5 rounded-full blur-3xl' />
 
 			<div className='container px-6' ref={ref}>
 				<motion.div
@@ -53,9 +54,7 @@ const About = () => {
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.4, duration: 0.6 }}
 							className='text-lg text-muted-foreground leading-relaxed mb-8'>
-							I'm a software engineer based in San Francisco with a passion for creating elegant solutions to complex
-							problems. With expertise in modern web technologies, I transform ideas into polished, production-ready
-							applications.
+							{aboutDescription.shortBio}
 						</motion.p>
 
 						<motion.p
@@ -63,8 +62,7 @@ const About = () => {
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.5, duration: 0.6 }}
 							className='text-lg text-muted-foreground leading-relaxed mb-10'>
-							When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing
-							knowledge through tech blogs and mentoring.
+							{aboutDescription.longBio}
 						</motion.p>
 
 						{/* Stats */}

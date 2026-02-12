@@ -12,13 +12,7 @@ const ResumePage = () => {
 			<main className='pt-32 pb-20'>
 				<div className='container px-6'>
 					<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-						<Link
-							to='/'
-							className='inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8'>
-							<ArrowLeft className='w-4 h-4' />
-							Back to Home
-						</Link>
-
+						
 						<div className='text-center mb-16'>
 							<span className='inline-block text-primary font-mono text-sm mb-4'>— Professional</span>
 							<h1 className='text-4xl md:text-6xl font-bold mb-6'>
@@ -67,17 +61,13 @@ const ResumePage = () => {
 								</p>
 							</div>
 
-							<div className='aspect-[8.5/11] md:min-h-[900px] bg-white'>
+							<div className='aspect-[8.5/11] md:min-h-225 bg-white'>
 								<iframe
 									src={personalInfo.resumePdf}
 									className='w-full h-full'
-									title='Resume PDF'
-									type='application/pdf'
-								/>
-							</div>
-						</motion.div>
-
-						{/* Info Section */}
+									title='Resume PDF'							/>
+						</div>
+					</motion.div>
 						<motion.div
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0 }}

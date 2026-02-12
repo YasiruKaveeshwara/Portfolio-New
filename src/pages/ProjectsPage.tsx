@@ -3,22 +3,18 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ArrowLeft, ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { projects } from "@/constants";
+import { getWebProjects, getMobileProjects, getFeaturedProjects } from "@/constants";
 
 const ProjectsPage = () => {
+	const webProjects = getWebProjects();
+	const mobileProjects = getMobileProjects();
+
 	return (
 		<div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
 			<Navigation />
 			<main className='pt-32 pb-20'>
 				<div className='container px-6'>
 					<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-						<Link
-							to='/'
-							className='inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8'>
-							<ArrowLeft className='w-4 h-4' />
-							Back to Home
-						</Link>
-
 						<div className='text-center mb-16'>
 							<span className='inline-block text-primary font-mono text-sm mb-4'>— Portfolio</span>
 							<h1 className='text-4xl md:text-6xl font-bold mb-6'>
@@ -31,14 +27,13 @@ const ProjectsPage = () => {
 					</motion.div>
 
 					{/* Featured Projects */}
-					<div className='mb-16'>
-						<h2 className='text-2xl font-bold mb-8'>
-							Featured <span className='text-primary'>Projects</span>
-						</h2>
-						<div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-6'>
-							{projects
-								.filter((p) => p.featured)
-								.map((project, i) => (
+					{getFeaturedProjects().length > 0 && (
+						<div className='mb-16'>
+							<h2 className='text-2xl font-bold mb-8'>
+								Featured <span className='text-primary'>Projects</span>
+							</h2>
+							<div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-6'>
+								{getFeaturedProjects().map((project, i) => (
 									<motion.article
 										key={project.title}
 										initial={{ opacity: 0, y: 40 }}
@@ -51,7 +46,7 @@ const ProjectsPage = () => {
 												alt={project.title}
 												className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
 											/>
-											<div className='absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent' />
+											<div className='absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent' />
 										</div>
 
 										<div className='absolute bottom-0 left-0 right-0 p-6'>
@@ -83,23 +78,23 @@ const ProjectsPage = () => {
 										</div>
 									</motion.article>
 								))}
+							</div>
 						</div>
-					</div>
+					)}
 
-					{/* Other Projects */}
-					<div>
-						<h2 className='text-2xl font-bold mb-8'>
-							Other <span className='text-primary'>Projects</span>
-						</h2>
-						<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-							{projects
-								.filter((p) => !p.featured)
-								.map((project, i) => (
+					{/* Web Applications */}
+					{webProjects.length > 0 && (
+						<div className='mb-16'>
+							<h2 className='text-2xl font-bold mb-8'>
+								Web <span className='text-primary'>Applications</span>
+							</h2>
+							<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+								{webProjects.map((project, i) => (
 									<motion.article
 										key={project.title}
 										initial={{ opacity: 0, y: 30 }}
 										animate={{ opacity: 1, y: 0 }}
-										transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }}
+										transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
 										className='group p-6 glass-card rounded-2xl hover-glow transition-all duration-500'>
 										<div className='aspect-video overflow-hidden rounded-lg mb-4'>
 											<img
@@ -111,7 +106,7 @@ const ProjectsPage = () => {
 
 										<div className='flex items-start justify-between mb-4'>
 											<div className='flex flex-wrap gap-2'>
-												{project.tags.slice(0, 3).map((tag) => (
+												{project.tags.slice(0, 3).map((tag: string) => (
 													<span
 														key={tag}
 														className='text-xs font-mono px-2 py-1 bg-secondary text-muted-foreground rounded'>
@@ -135,8 +130,61 @@ const ProjectsPage = () => {
 										<p className='text-muted-foreground text-sm'>{project.description}</p>
 									</motion.article>
 								))}
+							</div>
 						</div>
-					</div>
+					)}
+
+					{/* Mobile Apps */}
+					{mobileProjects.length > 0 && (
+						<div className='mb-16'>
+							<h2 className='text-2xl font-bold mb-8'>
+								Mobile <span className='text-primary'>Apps</span>
+							</h2>
+							<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+								{mobileProjects.map((project, i) => (
+									<motion.article
+										key={project.title}
+										initial={{ opacity: 0, y: 30 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
+										className='group p-6 glass-card rounded-2xl hover-glow transition-all duration-500'>
+										<div className='aspect-video overflow-hidden rounded-lg mb-4'>
+											<img
+												src={project.image}
+												alt={project.title}
+												className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+											/>
+										</div>
+
+										<div className='flex items-start justify-between mb-4'>
+											<div className='flex flex-wrap gap-2'>
+												{project.tags.slice(0, 3).map((tag: string) => (
+													<span
+														key={tag}
+														className='text-xs font-mono px-2 py-1 bg-secondary text-muted-foreground rounded'>
+														{tag}
+													</span>
+												))}
+											</div>
+											<div className='flex items-center gap-2'>
+												<a href={project.github} className='p-2 hover:text-primary transition-colors'>
+													<Github className='w-5 h-5' />
+												</a>
+												<a href={project.link} className='p-2 hover:text-primary transition-colors'>
+													<ExternalLink className='w-5 h-5' />
+												</a>
+											</div>
+										</div>
+
+										<h3 className='text-xl font-bold mb-2 group-hover:text-primary transition-colors'>
+											{project.title}
+										</h3>
+										<p className='text-muted-foreground text-sm'>{project.description}</p>
+									</motion.article>
+								))}
+							</div>
+						</div>
+					)}
 				</div>
 			</main>
 			<Footer />

@@ -20,18 +20,32 @@ export interface Certification {
 
 export const educationEntries: EducationEntry[] = [
 	{
-		degree: "Master of Science in Computer Science",
-		institution: "Stanford University",
-		period: "2016 - 2018",
-		description: "Specialized in Machine Learning and Distributed Systems. GPA: 3.9/4.0",
-		achievements: ["Dean's List", "Research Assistant", "Published 2 papers"],
+		degree: "BSc. (Hons) Information Technology specializing in Software Engineering",
+		institution: "Sri Lanka Institute of Information Technology (SLIIT)",
+		period: "2022 - Present",
+		description: "Expected Graduation: 2026",
+		achievements: [
+			"Studying core computer science concepts including data structures, algorithms, OOP, and databases.",
+			"Developed various full stack applications and mobile apps.",
+			"Engaged in industry-level software engineering concepts.",
+		],
 	},
 	{
-		degree: "Bachelor of Science in Software Engineering",
-		institution: "MIT",
-		period: "2012 - 2016",
-		description: "Focus on algorithms, data structures, and software architecture. GPA: 3.8/4.0",
-		achievements: ["Summa Cum Laude", "ACM Member", "Hackathon Winner"],
+		degree: "Diploma in English",
+		institution: "Britishway English Academy",
+		period: "2022",
+		description: "Merit Pass",
+		achievements: ["Studied English language and literature.", "Developed strong communication skills in English."],
+	},
+	{
+		degree: "G.C.E Advanced Level - Physical Science Stream",
+		institution: "President's College, Minuwangoda",
+		period: "2019 - 2021",
+		description: "",
+		achievements: [
+			"Studied Combined Mathematics, Physics, and Information and Communication Technology.",
+			"Developed a strong foundation in mathematics and physics.",
+		],
 	},
 ];
 

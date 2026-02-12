@@ -46,7 +46,7 @@ const Education = () => {
 									animate={isInView ? { opacity: 1, y: 0 } : {}}
 									transition={{ duration: 0.6, delay: 0.3 + index * 0.15 }}
 									className='relative pl-6 border-l-2 border-primary/30 hover:border-primary transition-colors'>
-									<div className='absolute left-0 top-0 w-3 h-3 bg-primary rounded-full -translate-x-[7px]' />
+									<div className='absolute left-0 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1.75' />
 
 									<div className='glass-card rounded-2xl p-6'>
 										<span className='text-sm font-mono text-primary'>{edu.period}</span>

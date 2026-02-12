@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { skillCategories } from "../constants";
@@ -8,11 +8,21 @@ const Skills = () => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+	useEffect(() => {
+		// Add devicon stylesheet if not already present
+		if (!document.querySelector('link[href*="devicon"]')) {
+			const link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.href = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css";
+			document.head.appendChild(link);
+		}
+	}, []);
+
 	return (
 		<section id='skills' className='relative py-32 overflow-hidden'>
 			{/* Background */}
 			<div className='absolute left-0 top-0 w-full h-full'>
-				<div className='absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl' />
+				<div className='absolute top-1/2 left-1/4 w-100 h-100 bg-primary/5 rounded-full blur-3xl' />
 			</div>
 
 			<div className='container px-6' ref={ref}>
@@ -31,7 +41,7 @@ const Skills = () => {
 				</motion.div>
 
 				<div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
-					{skillCategories.map((category, catIndex) => (
+					{skillCategories.slice(0, 4).map((category, catIndex) => (
 						<motion.div
 							key={category.title}
 							initial={{ opacity: 0, y: 30 }}
@@ -39,16 +49,19 @@ const Skills = () => {
 							transition={{ delay: 0.2 + catIndex * 0.1, duration: 0.6 }}
 							className='glass-card rounded-2xl p-6 hover-glow transition-all duration-500'>
 							<h3 className='text-lg font-semibold mb-4 text-primary font-mono'>{category.title}</h3>
-							<div className='flex flex-wrap gap-2'>
+							<div className='flex flex-wrap gap-3'>
 								{category.skills.map((skill, skillIndex) => (
-									<motion.span
-										key={skill}
+									<motion.div
+										key={skill.name}
 										initial={{ opacity: 0, scale: 0.8 }}
 										animate={isInView ? { opacity: 1, scale: 1 } : {}}
 										transition={{ delay: 0.4 + catIndex * 0.1 + skillIndex * 0.05, duration: 0.3 }}
-										className='px-3 py-1.5 text-sm bg-secondary rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors cursor-default'>
-										{skill}
-									</motion.span>
+										className='flex flex-col items-center justify-center px-4 py-3 bg-secondary rounded-lg hover:bg-secondary/80 transition-all duration-300 hover-glow cursor-default group'>
+										<i className={`${skill.icon} text-2xl mb-2 group-hover:scale-110 transition-transform`} />
+										<span className='text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors text-center line-clamp-2'>
+											{skill.name}
+										</span>
+									</motion.div>
 								))}
 							</div>
 						</motion.div>
@@ -74,7 +87,7 @@ const Skills = () => {
 					initial={{ scaleX: 0 }}
 					animate={isInView ? { scaleX: 1 } : {}}
 					transition={{ delay: 1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-					className='mt-16 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent'
+					className='mt-16 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent'
 				/>
 			</div>
 		</section>
