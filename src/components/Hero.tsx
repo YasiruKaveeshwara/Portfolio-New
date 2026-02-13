@@ -96,7 +96,7 @@ const Hero = () => {
 						<div className='absolute -inset-4 bg-linear-to-br from-primary/30 via-primary/10 to-transparent rounded-full blur-2xl animate-pulse' />
 						{/* Gradient ring */}
 						<div className='relative p-1 rounded-full bg-linear-to-br from-primary via-primary/50 to-primary/20'>
-							<div className='rounded-full overflow-hidden w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 ring-4 ring-background'>
+							<div className='rounded-full overflow-hidden w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 ring-4 ring-[--color-primary]'>
 								<img src='/photo.svg' alt={personalInfo.fullName} className='w-full h-full object-cover' />
 							</div>
 						</div>
