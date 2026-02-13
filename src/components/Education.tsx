@@ -75,7 +75,7 @@ const Education = () => {
 
 					{/* Certifications */}
 					<div>
-						<motion.div
+						{/* <motion.div
 							initial={{ opacity: 0, x: 30 }}
 							animate={isInView ? { opacity: 1, x: 0 } : {}}
 							transition={{ duration: 0.6, delay: 0.2 }}
@@ -107,10 +107,10 @@ const Education = () => {
 									</div>
 								</motion.div>
 							))}
-						</div>
+						</div> */}
 
 						{/* Stats card */}
-						<motion.div
+						{/* <motion.div
 							initial={{ opacity: 0, scale: 0.95 }}
 							animate={isInView ? { opacity: 1, scale: 1 } : {}}
 							transition={{ duration: 0.6, delay: 0.7 }}
@@ -126,7 +126,7 @@ const Education = () => {
 									<div className='text-sm text-muted-foreground'>Tech Articles Read</div>
 								</div>
 							</div>
-						</motion.div>
+						</motion.div> */}
 					</div>
 				</div>
 			</div>
