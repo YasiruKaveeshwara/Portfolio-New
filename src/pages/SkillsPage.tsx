@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 import { skillCategories, otherSkillCategories } from "@/constants";
 
 const SkillsPage = () => {

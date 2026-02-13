@@ -133,14 +133,3 @@ export const otherSkillCategories: SkillCategory[] = [
 		],
 	},
 ];
-
-// Get all skills flattened
-export const getAllSkills = (): Skill[] => {
-	return skillCategories.flatMap((category) => category.skills);
-};
-
-// Get skills by category
-export const getSkillsByCategory = (categoryTitle: string): Skill[] => {
-	const category = skillCategories.find((cat) => cat.title === categoryTitle);
-	return category ? category.skills : [];
-};

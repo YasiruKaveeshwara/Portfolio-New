@@ -29,13 +29,3 @@ export const experiences: WorkExperience[] = [
 		technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Git"],
 	},
 ];
-
-// Get work experience
-export const getExperiences = (): WorkExperience[] => {
-	return experiences;
-};
-
-// Get latest/current experience
-export const getCurrentExperience = (): WorkExperience | undefined => {
-	return experiences[0];
-};

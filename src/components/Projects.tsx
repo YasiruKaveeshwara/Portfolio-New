@@ -1,8 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, ArrowUpRight, ArrowRight } from "lucide-react";
+import { Github, ArrowUpRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getFeaturedProjects, getWebProjects, getMobileProjects, Project } from "../constants";
+import { getWebProjects, Project } from "../constants";
 
 const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView: boolean; delay: number }) => (
 	<motion.article
@@ -54,7 +54,6 @@ const Projects = () => {
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	const webProjects = getWebProjects();
-	const mobileProjects = getMobileProjects();
 
 	return (
 		<section id='projects' className='relative py-10 sm:py-16 lg:py-20 overflow-hidden'>

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ExternalLink, Github, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { getWebProjects, getMobileProjects, getFeaturedProjects } from "@/constants";
 
 const ProjectsPage = () => {

@@ -69,13 +69,3 @@ export const certifications: Certification[] = [
 		credentialUrl: "https://cncf.io",
 	},
 ];
-
-// Get all education
-export const getEducation = (): EducationEntry[] => {
-	return educationEntries;
-};
-
-// Get all certifications
-export const getCertifications = (): Certification[] => {
-	return certifications;
-};

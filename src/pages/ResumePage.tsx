@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Download, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Download, ExternalLink } from "lucide-react";
 import { personalInfo } from "@/constants";
 
 const ResumePage = () => {

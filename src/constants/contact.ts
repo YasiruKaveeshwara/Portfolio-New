@@ -11,25 +11,6 @@ export const contactInfo = {
 	Linkedin: "https://linkedin.com/in/kaveeshwaray",
 };
 
-export const socialLinks = [
-	{
-		platform: "GitHub",
-		icon: "Github",
-		url: "https://github.com/YasiruKaveeshwara",
-	},
-	{
-		platform: "LinkedIn",
-		icon: "Linkedin",
-		url: "https://linkedin.com/in/kaveeshwaray",
-	},
-
-	{
-		platform: "Email",
-		icon: "Mail",
-		url: "mailto:kaveeshwaray@gmail.com",
-	},
-];
-
 export const contactFormMessages = {
 	submitButtonText: "Send Message",
 	successMessage: "Thank you! I'll get back to you soon.",

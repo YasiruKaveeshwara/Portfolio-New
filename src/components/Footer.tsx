@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Heart, Facebook, MessageCircle, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Heart, Facebook, MessageCircle } from "lucide-react";
 import { personalInfo } from "@/constants";
 import Logo from "./Logo";
 

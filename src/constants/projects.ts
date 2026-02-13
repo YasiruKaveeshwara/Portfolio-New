@@ -109,11 +109,6 @@ export const getFeaturedProjects = (): Project[] => {
 	return projects.filter((project) => project.featured);
 };
 
-// Get all projects
-export const getAllProjects = (): Project[] => {
-	return projects;
-};
-
 // Get web projects
 export const getWebProjects = (): Project[] => {
 	return projects.filter((project) => !project.mobile);
