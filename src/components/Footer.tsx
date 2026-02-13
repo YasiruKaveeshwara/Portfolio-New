@@ -18,7 +18,7 @@ const quickLinks = [
 const Footer = () => {
 	return (
 		<footer className='py-10 border-t border-border'>
-			<div className='container px-6'>
+			<div className='container px-4 sm:px-6'>
 				<div className='grid gap-8 md:grid-cols-3 items-start'>
 					{/* Brand & Contact */}
 					<div>

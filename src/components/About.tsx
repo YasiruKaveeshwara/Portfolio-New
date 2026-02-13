@@ -18,16 +18,16 @@ const About = () => {
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	return (
-		<section id='about' className='relative py-32 overflow-hidden'>
+		<section id='about' className='relative  sm:py-16 lg:py-20 overflow-hidden'>
 			{/* Background accent */}
 			<div className='absolute right-0 top-1/2 -translate-y-1/2 w-125 h-125 bg-primary/5 rounded-full blur-3xl' />
 
-			<div className='container px-6' ref={ref}>
+			<div className='container py-10 px-4 sm:px-6' ref={ref}>
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.8 }}
-					className='grid lg:grid-cols-2 gap-16 items-center'>
+					className='grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center'>
 					{/* Left content */}
 					<div>
 						<motion.span
@@ -42,7 +42,7 @@ const About = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.3, duration: 0.6 }}
-							className='text-4xl md:text-5xl font-bold mb-6 leading-tight'>
+							className='text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight'>
 							Engineering
 							<span className='gradient-text'> Scalable Systems </span>
 							<br className='hidden md:block' />
@@ -54,7 +54,7 @@ const About = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.4, duration: 0.6 }}
-							className='text-lg text-muted-foreground leading-relaxed mb-8'>
+							className='text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8'>
 							{aboutDescription.shortBio}
 						</motion.p>
 
@@ -62,7 +62,7 @@ const About = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.5, duration: 0.6 }}
-							className='text-lg text-muted-foreground leading-relaxed mb-10'>
+							className='text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 sm:mb-10'>
 							{aboutDescription.longBio}
 						</motion.p>
 
@@ -71,7 +71,7 @@ const About = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.6, duration: 0.6 }}
-							className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+							className='grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6'>
 							{aboutStats.map((stat, i) => (
 								<motion.div
 									key={stat.label}
@@ -79,22 +79,22 @@ const About = () => {
 									animate={isInView ? { opacity: 1, scale: 1 } : {}}
 									transition={{ delay: 0.7 + i * 0.1, duration: 0.4 }}
 									className='text-center'>
-									<div className='text-3xl font-bold gradient-text'>{stat.value}</div>
-									<div className='text-sm text-muted-foreground mt-1'>{stat.label}</div>
+									<div className='text-2xl sm:text-3xl font-bold gradient-text'>{stat.value}</div>
+									<div className='text-xs sm:text-sm text-muted-foreground mt-1'>{stat.label}</div>
 								</motion.div>
 							))}
 						</motion.div>
 					</div>
 
 					{/* Right content - Highlights grid */}
-					<div className='grid grid-cols-2 gap-4'>
+					<div className='grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4'>
 						{highlights.map((item, i) => (
 							<motion.div
 								key={item.title}
 								initial={{ opacity: 0, y: 30 }}
 								animate={isInView ? { opacity: 1, y: 0 } : {}}
 								transition={{ delay: 0.4 + i * 0.15, duration: 0.6 }}
-								className='group p-6 glass-card rounded-2xl hover:bg-secondary/50 transition-all duration-500 hover-glow'>
+								className='group p-4 sm:p-6 glass-card rounded-2xl hover:bg-secondary/50 transition-all duration-500 hover-glow'>
 								<div className='w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors'>
 									{React.createElement(iconMap[item.icon], { className: "w-6 h-6 text-primary" })}
 								</div>

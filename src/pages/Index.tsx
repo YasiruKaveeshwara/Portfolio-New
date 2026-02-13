@@ -7,23 +7,30 @@ import Education from "@/components/Education";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navigation />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Education />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
+			<Navigation />
+			<main>
+				<Hero />
+				<SectionDivider />
+				<About />
+				<SectionDivider />
+				<Skills />
+				<SectionDivider />
+				<Experience />
+				<SectionDivider />
+				<Education />
+				<SectionDivider />
+				<Projects />
+				<SectionDivider />
+				<Contact />
+			</main>
+			<Footer />
+		</div>
+	);
 };
 
 export default Index;

@@ -8,15 +8,15 @@ const Education = () => {
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	return (
-		<section id='education' className='py-32 relative'>
-			<div className='container px-6 relative z-10'>
+		<section id='education' className='py-10 sm:py-16 lg:py-20 relative'>
+			<div className='container px-4 sm:px-6 relative z-10'>
 				<motion.div
 					ref={ref}
 					initial={{ opacity: 0, y: 20 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6 }}
-					className='text-center mb-16'>
-					<h2 className='text-4xl md:text-5xl font-bold mb-4'>
+					className='text-center mb-10 sm:mb-16'>
+					<h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-4'>
 						<span className='gradient-text'>Education</span> & Certifications
 					</h2>
 					<p className='text-muted-foreground text-lg max-w-2xl mx-auto'>
@@ -24,7 +24,7 @@ const Education = () => {
 					</p>
 				</motion.div>
 
-				<div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-12'>
+				<div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-12'>
 					{/* Education */}
 					<div>
 						<motion.div

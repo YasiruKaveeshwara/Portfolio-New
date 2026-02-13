@@ -36,18 +36,18 @@ const Contact = () => {
 	};
 
 	return (
-		<section id='contact' className='relative py-32 overflow-hidden'>
+		<section id='contact' className='relative py-10 sm:py-16 lg:py-20 overflow-hidden'>
 			{/* Background */}
 			<div className='absolute left-1/2 top-0 -translate-x-1/2 w-200 h-100 bg-primary/5 rounded-full blur-3xl' />
 
-			<div className='container px-6' ref={ref}>
+			<div className='container px-4 sm:px-6' ref={ref}>
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.8 }}
-					className='text-center mb-16'>
+					className='text-center mb-10 sm:mb-16'>
 					<span className='inline-block text-primary font-mono text-sm mb-4'>— Get In Touch</span>
-					<h2 className='text-4xl md:text-5xl font-bold mb-6'>
+					<h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6'>
 						Let's <span className='gradient-text'>Connect</span>
 					</h2>
 					<p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
@@ -55,7 +55,7 @@ const Contact = () => {
 					</p>
 				</motion.div>
 
-				<div className='grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto'>
+				<div className='grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto'>
 					{/* Contact info */}
 					<motion.div
 						initial={{ opacity: 0, x: -40 }}
@@ -110,12 +110,12 @@ const Contact = () => {
 							<motion.div
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
-								className='h-full flex flex-col items-center justify-center glass-card rounded-2xl p-8'>
+								className='h-full flex flex-col items-center justify-center glass-card rounded-2xl p-6 sm:p-8'>
 								<CheckCircle className='w-16 h-16 text-green-500 mb-4' />
 								<h3 className='text-2xl font-bold mb-2'>Message Sent!</h3>
 								<p className='text-muted-foreground text-center'>{contactFormMessages.successMessage}</p>
 							</motion.div>
-						:	<form ref={formRef} onSubmit={handleSubmit} className='glass-card rounded-2xl p-8'>
+						:	<form ref={formRef} onSubmit={handleSubmit} className='glass-card rounded-2xl p-5 sm:p-8'>
 								<div className='space-y-6'>
 									{error && (
 										<div className='p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm text-center'>

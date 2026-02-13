@@ -9,25 +9,17 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 		initial={{ opacity: 0, y: 40 }}
 		animate={isInView ? { opacity: 1, y: 0 } : {}}
 		transition={{ delay, duration: 0.6 }}
-		className='group relative overflow-hidden rounded-2xl glass-card hover-glow'>
-		<div className='aspect-video overflow-hidden'>
+		className='group relative overflow-hidden rounded-2xl glass-card hover-glow '>
+		<div className='aspect-square overflow-hidden '>
 			<img
 				src={project.image}
 				alt={project.title}
 				className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
 			/>
-			<div className='absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent' />
+			<div className='absolute inset-0 bg-linear-to-t from-background via-background/80 to-transparent' />
 		</div>
 
 		<div className='absolute bottom-0 left-0 right-0 p-6'>
-			<div className='flex flex-wrap gap-2 mb-3'>
-				{project.tags.map((tag: string) => (
-					<span key={tag} className='text-xs font-mono px-2 py-1 bg-primary/20 text-primary rounded'>
-						{tag}
-					</span>
-				))}
-			</div>
-
 			<h3 className='text-2xl font-bold mb-2 group-hover:text-primary transition-colors'>{project.title}</h3>
 			<p className='text-muted-foreground text-sm mb-4 line-clamp-2'>{project.description}</p>
 
@@ -39,6 +31,14 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 						Live Demo <ArrowUpRight className='w-4 h-4' />
 					</a>
 				)}
+
+				<div className='flex flex-wrap gap-2 mb-3'>
+					{project.tags.map((tag: string) => (
+						<span key={tag} className='text-xs font-mono px-2 py-1 bg-primary/20 text-primary rounded'>
+							{tag}
+						</span>
+					))}
+				</div>
 				<a
 					href={project.github}
 					className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
@@ -57,18 +57,18 @@ const Projects = () => {
 	const mobileProjects = getMobileProjects();
 
 	return (
-		<section id='projects' className='relative py-32 overflow-hidden'>
+		<section id='projects' className='relative py-10 sm:py-16 lg:py-20 overflow-hidden'>
 			{/* Background */}
 			<div className='absolute right-0 bottom-0 w-150 h-150 bg-primary/5 rounded-full blur-3xl' />
 
-			<div className='container px-6' ref={ref}>
+			<div className='container px-4 sm:px-6' ref={ref}>
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.8 }}
-					className='text-center mb-16'>
+					className='text-center mb-10 sm:mb-16'>
 					<span className='inline-block text-primary font-mono text-sm mb-4'>— Featured Work</span>
-					<h2 className='text-4xl md:text-5xl font-bold mb-6'>
+					<h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6'>
 						Featured <span className='gradient-text'>Projects</span>
 					</h2>
 					<p className='text-lg text-muted-foreground max-w-2xl mx-auto'>

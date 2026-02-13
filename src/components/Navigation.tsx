@@ -8,7 +8,6 @@ const navItems = [
 	{ label: "Skills", href: "/skills" },
 	{ label: "Projects", href: "/projects" },
 	{ label: "Resume", href: "/resume" },
-	{ label: "Contact", href: "/#contact" },
 ];
 
 const Navigation = () => {
@@ -31,14 +30,14 @@ const Navigation = () => {
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
 				isScrolled ? "glass-card py-4" : "py-6"
 			}`}>
-			<nav className='container px-6 flex items-center justify-between'>
+			<nav className='container px-4 sm:px-6 flex items-center justify-between'>
 				<a href='/' className='flex items-center text-primary'>
 					<motion.div
 						className='flex items-center'
 						whileHover={{ scale: 1.05 }}
 						transition={{ type: "spring", stiffness: 400 }}>
 						<Logo className='h-8 w-auto' />
-						<span className='ml-2 font-bold text-lg text-foreground'>Yasiru Kaveeshwara</span>
+						<span className='ml-2 font-bold text-sm sm:text-lg text-foreground'>Yasiru Kaveeshwara</span>
 					</motion.div>
 				</a>
 
@@ -56,7 +55,7 @@ const Navigation = () => {
 					))}
 					<li>
 						<a
-							href='#contact'
+							href='/#contact'
 							className='px-5 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-all'>
 							Hire Me
 						</a>
@@ -96,7 +95,7 @@ const Navigation = () => {
 					))}
 					<li>
 						<a
-							href='#contact'
+							href='/#contact'
 							onClick={() => setIsMobileMenuOpen(false)}
 							className='block w-full text-center px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg'>
 							Hire Me

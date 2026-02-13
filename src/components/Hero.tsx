@@ -4,7 +4,7 @@ import { personalInfo } from "../constants";
 
 const Hero = () => {
 	return (
-		<section className='relative min-h-screen flex items-center justify-center overflow-hidden'>
+		<section className='relative min-h-screen flex items-center justify-center overflow-hidden sm:pt-0'>
 			{/* Background glow */}
 			<div className='absolute inset-0 overflow-hidden'>
 				<div className='absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-200 bg-linear-to-r from-primary/20 via-primary/5 to-transparent rounded-full blur-3xl' />
@@ -17,8 +17,8 @@ const Hero = () => {
 			{/* Grid pattern */}
 			<div className='absolute inset-0 bg-[linear-gradient(hsl(220_20%_15%/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(220_20%_15%/0.3)_1px,transparent_1px)] bg-size-[100px_100px] mask-[radial-gradient(ellipse_at_center,black_20%,transparent_70%)]' />
 
-			<div className='container relative z-10 px-6'>
-				<div className='flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16'>
+			<div className='container relative z-10 px-4 sm:px-6'>
+				<div className='flex flex-col-reverse lg:flex-row items-center justify-between gap-8 sm:gap-10 lg:gap-16'>
 					{/* Left: Text Content */}
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
@@ -40,7 +40,7 @@ const Hero = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.3, duration: 0.8 }}
-							className='text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6'>
+							className='text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6'>
 							<span className='block text-foreground'>Hi, I'm</span>
 							<span className='block gradient-text text-glow'>{personalInfo.fullName}</span>
 						</motion.h1>
@@ -49,7 +49,7 @@ const Hero = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.5, duration: 0.8 }}
-							className='text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed'>
+							className='text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-10 leading-relaxed'>
 							{personalInfo.bio}
 						</motion.p>
 
@@ -57,10 +57,10 @@ const Hero = () => {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.7, duration: 0.8 }}
-							className='flex items-center justify-center lg:justify-start gap-4'>
+							className='flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4'>
 							<a
 								href='#projects'
-								className='group relative inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover-glow'>
+								className='group relative inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover-glow text-sm sm:text-base'>
 								<span className='relative z-10'>View My Work</span>
 								<ArrowDown className='w-4 h-4 relative z-10 transition-transform group-hover:translate-y-1' />
 							</a>
@@ -77,7 +77,7 @@ const Hero = () => {
 										initial={{ opacity: 0, scale: 0 }}
 										animate={{ opacity: 1, scale: 1 }}
 										transition={{ delay: 0.9 + i * 0.1, duration: 0.4 }}
-										className='p-3 glass-card rounded-xl hover:bg-secondary transition-all duration-300 hover:scale-110'
+										className='p-2.5 sm:p-3 glass-card rounded-xl hover:bg-secondary transition-all duration-300 hover:scale-110'
 										aria-label={social.label}>
 										<social.icon className='w-5 h-5 text-muted-foreground hover:text-foreground transition-colors' />
 									</motion.a>
@@ -96,7 +96,7 @@ const Hero = () => {
 						<div className='absolute -inset-4 bg-linear-to-br from-primary/30 via-primary/10 to-transparent rounded-full blur-2xl animate-pulse' />
 						{/* Gradient ring */}
 						<div className='relative p-1 rounded-full bg-linear-to-br from-primary via-primary/50 to-primary/20'>
-							<div className='rounded-full overflow-hidden w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 ring-4 ring-background'>
+							<div className='rounded-full overflow-hidden w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 ring-4 ring-background'>
 								<img src='/photo.svg' alt={personalInfo.fullName} className='w-full h-full object-cover' />
 							</div>
 						</div>

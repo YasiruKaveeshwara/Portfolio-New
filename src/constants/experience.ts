@@ -18,7 +18,7 @@ export const experiences: WorkExperience[] = [
 		period: "2025 April - December (9 months)",
 		description:
 			"Collaborated with the development team to build and optimize web components. Gained hands-on experience in a professional environment, moving from theoretical concepts to shipping production-ready features and improving system reliability.",
-		technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Git"],
+		technologies: ["Next.js", "Springboot", "Firebase", "Tailwind CSS", "Auth0"],
 	},
 	{
 		title: "Freelance Web Developer",
@@ -26,7 +26,7 @@ export const experiences: WorkExperience[] = [
 		period: "2024 - Present",
 		description:
 			"Designing and developing custom full-stack solutions for various clients. I focus on building responsive web applications from the ground up, managing everything from database architecture to frontend deployment while ensuring high performance and clean code.",
-		technologies: ["Next.js", "Springboot", "Firebase", "Tailwind CSS", "Auth0"],
+		technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Git"],
 	},
 ];
 

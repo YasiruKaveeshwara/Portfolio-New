@@ -9,7 +9,7 @@ export const personalInfo = {
 	title: "Software Engineer | Full-Stack Developer",
 
 	// Contact Information
-	email: "kveeshwaray@gmail.com",
+	email: "kaveeshwaray@gmail.com",
 	phone: "+94 70 118 1568",
 	location: "Gampaha, Sri Lanka",
 
@@ -26,7 +26,7 @@ export const personalInfo = {
 	bio: "Full-stack developer passionate about creating scalable applications and solving complex problems. Experienced in modern web technologies with a focus on clean code and user experience.",
 
 	// Resume PDF (from public folder)
-	resumePdf: "/resume.pdf",
+	resumePdf: "/Resume.pdf",
 
 	// Availability
 	isAvailableForWork: true,

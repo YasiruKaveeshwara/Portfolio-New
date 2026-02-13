@@ -12,7 +12,6 @@ const ResumePage = () => {
 			<main className='pt-32 pb-20'>
 				<div className='container px-6'>
 					<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-						
 						<div className='text-center mb-16'>
 							<span className='inline-block text-primary font-mono text-sm mb-4'>— Professional</span>
 							<h1 className='text-4xl md:text-6xl font-bold mb-6'>
@@ -62,31 +61,7 @@ const ResumePage = () => {
 							</div>
 
 							<div className='aspect-[8.5/11] md:min-h-225 bg-white'>
-								<iframe
-									src={personalInfo.resumePdf}
-									className='w-full h-full'
-									title='Resume PDF'							/>
-						</div>
-					</motion.div>
-						<motion.div
-							initial={{ opacity: 0, y: 40 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ delay: 0.6, duration: 0.6 }}
-							className='grid md:grid-cols-3 gap-6 mt-12'>
-							<div className='glass-card rounded-2xl p-6'>
-								<h3 className='text-lg font-semibold mb-2 text-primary'>Contact</h3>
-								<p className='text-sm text-muted-foreground mb-3'>{personalInfo.email}</p>
-								<p className='text-sm text-muted-foreground'>{personalInfo.phone}</p>
-							</div>
-
-							<div className='glass-card rounded-2xl p-6'>
-								<h3 className='text-lg font-semibold mb-2 text-primary'>Location</h3>
-								<p className='text-sm text-muted-foreground'>{personalInfo.location}</p>
-							</div>
-
-							<div className='glass-card rounded-2xl p-6'>
-								<h3 className='text-lg font-semibold mb-2 text-primary'>Title</h3>
-								<p className='text-sm text-muted-foreground'>{personalInfo.title}</p>
+								<iframe src={personalInfo.resumePdf} className='w-full h-full' title='Resume PDF' />
 							</div>
 						</motion.div>
 					</div>

@@ -19,20 +19,20 @@ const Skills = () => {
 	}, []);
 
 	return (
-		<section id='skills' className='relative py-32 overflow-hidden'>
+		<section id='skills' className='relative sm:py-16 lg:py-20 overflow-hidden'>
 			{/* Background */}
 			<div className='absolute left-0 top-0 w-full h-full pointer-events-none'>
 				<div className='absolute top-1/2 left-1/4 w-100 h-100 bg-primary/5 rounded-full blur-3xl' />
 			</div>
 
-			<div className='container px-6' ref={ref}>
+			<div className='container py-10 px-4 sm:px-6' ref={ref}>
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.8 }}
-					className='text-center mb-16'>
+					className='text-center mb-10 sm:mb-16'>
 					<span className='inline-block text-primary font-mono text-sm mb-4'>— Tech Stack</span>
-					<h2 className='text-4xl md:text-5xl font-bold mb-6'>
+					<h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6'>
 						Skills & <span className='gradient-text'>Technologies</span>
 					</h2>
 					<p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
@@ -40,7 +40,7 @@ const Skills = () => {
 					</p>
 				</motion.div>
 
-				<div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
+				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6'>
 					{skillCategories.slice(0, 4).map((category, catIndex) => (
 						<motion.div
 							key={category.title}
@@ -81,14 +81,6 @@ const Skills = () => {
 						<ArrowRight className='w-4 h-4 transition-transform group-hover:translate-x-1' />
 					</Link>
 				</motion.div>
-
-				{/* Animated tech line */}
-				<motion.div
-					initial={{ scaleX: 0 }}
-					animate={isInView ? { scaleX: 1 } : {}}
-					transition={{ delay: 1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-					className='mt-16 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent'
-				/>
 			</div>
 		</section>
 	);

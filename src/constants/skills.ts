@@ -104,35 +104,32 @@ export const otherSkillCategories: SkillCategory[] = [
 	{
 		title: "Technical & Development Skills",
 		skills: [
+			{ name: "Full-Stack Architecture (MERN)", icon: "fa fa-layer-group" }, // Renamed to sound more "Engineering" focused
 			{ name: "API Development & Integration", icon: "fa fa-plug" },
-			{ name: "Full-Stack Web Development (MERN)", icon: "fa fa-laptop-code" },
-			{ name: "Mobile App Development", icon: "fa fa-mobile-alt" },
-			{ name: "Frontend Frameworks", icon: "fa fa-window-maximize" },
-			{ name: "Backend Frameworks", icon: "fa fa-server" },
-			{ name: "Database Design & Management", icon: "fa fa-database" },
+			{ name: "Database Design (MongoDB/SQL)", icon: "fa fa-database" },
+			{ name: "System Scalability & Performance", icon: "fa fa-tachometer-alt" }, // Added to match your "Scalable Systems" heading
 			{ name: "Object-Oriented Programming (OOP)", icon: "fa fa-cogs" },
 			{ name: "Data Structures & Algorithms", icon: "fa fa-sitemap" },
-			{ name: "RESTful APIs", icon: "fa fa-code" },
-			{ name: "UI/UX Design & Prototyping", icon: "fa fa-paint-brush" },
-			{ name: "Responsive Web Design & Accessibility", icon: "fa fa-desktop" },
-			{ name: "Project Management & Agile", icon: "fa fa-project-diagram" },
+			{ name: "Component-Based Design", icon: "fa fa-cubes" }, // More specific to React/Modern Web
+			{ name: "RESTful API Standards", icon: "fa fa-code" },
+			{ name: "Version Control (Git/GitHub)", icon: "fa fa-code-branch" },
+			{ name: "Responsive & Adaptive UI", icon: "fa fa-desktop" },
+			{ name: "Authentication & Security", icon: "fa fa-user-shield" }, // Crucial for a full-stack dev
 			{ name: "Technical Documentation", icon: "fa fa-file-alt" },
-			{ name: "Version Control & GitOps", icon: "fa fa-code-branch" },
-			{ name: "CI/CD Pipelines", icon: "fa fa-sync" },
+			{ name: "CI/CD & Deployment", icon: "fa fa-rocket" }, // Good if you used Vercel/Netlify/AWS
 		],
 	},
 	{
-		title: "Soft Skills",
+		title: "Professional & Soft Skills",
 		skills: [
-			{ name: "Leadership & Decision Making", icon: "fa fa-users" },
-			{ name: "Collaboration & Teamwork", icon: "fa fa-handshake" },
-			{ name: "Time Management & Prioritization", icon: "fa fa-clock" },
-			{ name: "Adaptability & Growth Mindset", icon: "fa fa-sync-alt" },
-			{ name: "Creativity & Innovation", icon: "fa fa-lightbulb" },
-			{ name: "Critical Thinking & Strategy", icon: "fa fa-brain" },
-			{ name: "Problem Solving & Troubleshooting", icon: "fa fa-puzzle-piece" },
+			{ name: "First Principles Thinking", icon: "fa fa-lightbulb" }, // YOUR BRAND: Replaces generic "Critical Thinking"
+			{ name: "Complex Problem Solving", icon: "fa fa-puzzle-piece" },
+			{ name: "Client Management", icon: "fa fa-briefcase" }, // Added because of your Freelance work
+			{ name: "Agile & Team Collaboration", icon: "fa fa-users" },
+			{ name: "Adaptability & Rapid Learning", icon: "fa fa-sync-alt" },
+			{ name: "Time Management & Delivery", icon: "fa fa-clock" }, // Important for freelancers
+			{ name: "Strategic Decision Making", icon: "fa fa-chess" },
 			{ name: "Effective Communication", icon: "fa fa-comments" },
-			{ name: "Emotional Intelligence (EQ)", icon: "fa fa-heart" },
 		],
 	},
 ];

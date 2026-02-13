@@ -30,7 +30,6 @@ const SkillsPage = () => {
 			<main className='pt-32 pb-20'>
 				<div className='container px-6'>
 					<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-					
 						<div className='text-center mb-16'>
 							<span className='inline-block text-primary font-mono text-sm mb-4'>— Tech Stack</span>
 							<h1 className='text-4xl md:text-6xl font-bold mb-6'>
@@ -89,7 +88,7 @@ const SkillsPage = () => {
 									transition={{ delay: 0.7 + catIndex * 0.15, duration: 0.6 }}
 									className='glass-card rounded-2xl p-6 hover-glow transition-all duration-500'>
 									<h3 className='text-xl font-semibold mb-4 text-primary font-mono'>{category.title}</h3>
-									<ul className='grid grid-cols-2 gap-y-3 gap-x-6'>
+									<ul className='grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6'>
 										{category.skills.map((skill, skillIndex) => (
 											<motion.li
 												key={skill.name}
