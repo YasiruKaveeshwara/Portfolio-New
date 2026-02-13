@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# Yasiru Kaveeshwara — Portfolio
 
-## Project info
+🌐 **Live:** [yasirukaveeshwara.dev](https://yasirukaveeshwara.dev)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A modern, responsive developer portfolio built with React, TypeScript, and Tailwind CSS. Features smooth animations, a dark glassmorphism theme, and a fully mobile-friendly layout.
 
-## How can I edit this code?
+## About Me
 
-There are several ways of editing your application.
+**Yasiru Kaveeshwara** — Software Engineer | Full-Stack Developer
 
-**Use Lovable**
+Software Engineering Undergraduate and MERN Stack Developer based in Gampaha, Sri Lanka. I build scalable web applications and explore the intersection of full-stack development and emerging AI trends.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Email:** kaveeshwaray@gmail.com
+- **LinkedIn:** [linkedin.com/in/kaveeshwaray](https://linkedin.com/in/kaveeshwaray)
+- **GitHub:** [github.com/YasiruKaveeshwara](https://github.com/YasiruKaveeshwara)
 
-Changes made via Lovable will be committed automatically to this repo.
+## About the Project
 
-**Use your preferred IDE**
+This portfolio showcases my projects, skills, experience, and education with a polished dark-themed UI. It includes:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Hero** section with profile photo and animated entrance
+- **About** section with highlights and stats
+- **Skills** page with categorized tech stack (devicons)
+- **Experience** timeline with alternating layout
+- **Education** & certifications
+- **Projects** gallery with live demo / GitHub links
+- **Contact** form powered by EmailJS
+- **Resume** page with PDF viewer
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tech Stack
 
-Follow these steps:
+| Category          | Technologies                   |
+| ----------------- | ------------------------------ |
+| **Framework**     | React 19, TypeScript           |
+| **Build Tool**    | Vite 7                         |
+| **Styling**       | Tailwind CSS 4, tw-animate-css |
+| **Animations**    | Framer Motion                  |
+| **Routing**       | React Router DOM               |
+| **UI Components** | Radix UI, Lucide Icons         |
+| **Email**         | EmailJS                        |
+| **Particles**     | tsparticles                    |
+| **Testing**       | Vitest, Testing Library        |
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm (or Bun)
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/YasiruKaveeshwara/Portfolio-New.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project
+cd Portfolio-New
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a `.env` file in the root with your EmailJS credentials:
 
-**Use GitHub Codespaces**
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Available Scripts
 
-## What technologies are used for this project?
+| Command              | Description              |
+| -------------------- | ------------------------ |
+| `npm run dev`        | Start dev server         |
+| `npm run build`      | Production build         |
+| `npm run preview`    | Preview production build |
+| `npm run lint`       | Run ESLint               |
+| `npm run test`       | Run tests                |
+| `npm run test:watch` | Run tests in watch mode  |
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/       # Reusable UI components
+│   └── ui/           # shadcn-ui primitives
+├── constants/        # All configurable data (personal, projects, skills, etc.)
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions
+├── pages/            # Route pages (Index, Skills, Projects, Resume, NotFound)
+└── test/             # Test setup and specs
+public/
+├── photo.svg         # Profile photo
+├── Resume.pdf        # Downloadable resume
+└── particleConfig.json
+```
 
-## How can I deploy this project?
+## Customization
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+All personal data is centralized in `src/constants/`. Update these files to make the portfolio your own:
 
-## Can I connect a custom domain to my Lovable project?
+- **personal.ts** — Name, bio, social links, contact info
+- **about.ts** — Stats, highlights, descriptions
+- **skills.ts** — Skill categories with devicon classes
+- **experience.ts** — Work experience entries
+- **education.ts** — Education & certifications
+- **projects.ts** — Project cards with tags, images, links
+- **contact.ts** — Contact info & form messages
 
-Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built with ❤️ by [Yasiru Kaveeshwara](https://github.com/YasiruKaveeshwara)
