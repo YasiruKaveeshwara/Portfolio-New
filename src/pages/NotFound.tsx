@@ -53,7 +53,7 @@ const NotFound = () => {
 							</p>
 
 							{/* Route Display */}
-							<motion.div
+							{/* <motion.div
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ delay: 0.3, duration: 0.6 }}
@@ -61,7 +61,7 @@ const NotFound = () => {
 								<p className='text-sm text-muted-foreground'>
 									Attempted path: <code className='text-primary font-mono'>{location.pathname}</code>
 								</p>
-							</motion.div>
+							</motion.div> */}
 
 							{/* Action Buttons */}
 							<motion.div

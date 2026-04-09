@@ -18,4 +18,23 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Warn when a chunk exceeds 500 KB
+    chunkSizeWarningLimit: 500,
+    rollupOptions: {
+      output: {
+        // Split vendor libraries into named chunks for better caching
+        manualChunks: {
+          // Core React runtime — cached across all deploys
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          // Framer Motion is large (~140 KB gzip) — isolate so page chunks stay small
+          "vendor-motion": ["framer-motion"],
+          // Radix primitives actually used
+          "vendor-radix": ["@radix-ui/react-tooltip", "@radix-ui/react-toast"],
+          // Particles library — only loaded lazily, so keep in own chunk
+          "vendor-particles": ["react-tsparticles", "tsparticles-slim"],
+        },
+      },
+    },
+  },
 }));

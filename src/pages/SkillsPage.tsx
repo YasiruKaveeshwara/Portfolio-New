@@ -1,27 +1,9 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { skillCategories, otherSkillCategories } from "@/constants";
 
 const SkillsPage = () => {
-	useEffect(() => {
-		// Add devicon stylesheet if not already present
-		if (!document.querySelector('link[href*="devicon"]')) {
-			const link = document.createElement("link");
-			link.rel = "stylesheet";
-			link.href = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css";
-			document.head.appendChild(link);
-		}
-		// Add Font Awesome for other skill icons
-		if (!document.querySelector('link[href*="font-awesome"]')) {
-			const fa = document.createElement("link");
-			fa.rel = "stylesheet";
-			fa.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
-			document.head.appendChild(fa);
-		}
-	}, []);
-
 	return (
 		<div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
 			<Navigation />
