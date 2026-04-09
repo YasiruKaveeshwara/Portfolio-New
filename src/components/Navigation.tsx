@@ -1,18 +1,29 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 
 const navItems = [
-	{ label: "About", href: "/#about" },
-	{ label: "Skills", href: "/skills" },
-	{ label: "Projects", href: "/projects" },
-	{ label: "Resume", href: "/resume" },
+	{ label: "About", href: "/", hash: "about" },
+	{ label: "Skills", href: "/skills", hash: "" },
+	{ label: "Projects", href: "/projects", hash: "" },
+	{ label: "Resume", href: "/resume", hash: "" },
 ];
+
+/** Scroll to a hash section smoothly, with a small delay to allow page paint */
+const scrollToHash = (hash: string) => {
+	setTimeout(() => {
+		const el = document.getElementById(hash);
+		if (el) el.scrollIntoView({ behavior: "smooth" });
+	}, 80);
+};
 
 const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -21,6 +32,19 @@ const Navigation = () => {
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
+
+	const handleHashNav = (e: React.MouseEvent, href: string, hash: string) => {
+		if (!hash) return; // let normal routing handle non-hash links
+		e.preventDefault();
+		setIsMobileMenuOpen(false);
+		if (location.pathname === "/") {
+			// Already on home page — just smooth scroll
+			scrollToHash(hash);
+		} else {
+			// Navigate to home, then scroll once it mounts
+			navigate("/", { state: { scrollTo: hash } });
+		}
+	};
 
 	return (
 		<motion.header
@@ -46,7 +70,8 @@ const Navigation = () => {
 					{navItems.map((item) => (
 						<li key={item.label}>
 							<a
-								href={item.href}
+								href={item.hash ? `/#${item.hash}` : item.href}
+								onClick={(e) => handleHashNav(e, item.href, item.hash)}
 								className='text-sm text-muted-foreground hover:text-foreground transition-colors relative group'>
 								{item.label}
 								<span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full' />
@@ -56,6 +81,7 @@ const Navigation = () => {
 					<li>
 						<a
 							href='/#contact'
+							onClick={(e) => handleHashNav(e, "/", "contact")}
 							className='px-5 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-all'>
 							Hire Me
 						</a>
@@ -86,8 +112,8 @@ const Navigation = () => {
 					{navItems.map((item) => (
 						<li key={item.label}>
 							<a
-								href={item.href}
-								onClick={() => setIsMobileMenuOpen(false)}
+								href={item.hash ? `/#${item.hash}` : item.href}
+								onClick={(e) => { handleHashNav(e, item.href, item.hash); setIsMobileMenuOpen(false); }}
 								className='block text-muted-foreground hover:text-foreground transition-colors'>
 								{item.label}
 							</a>
@@ -96,7 +122,7 @@ const Navigation = () => {
 					<li>
 						<a
 							href='/#contact'
-							onClick={() => setIsMobileMenuOpen(false)}
+							onClick={(e) => { handleHashNav(e, "/", "contact"); setIsMobileMenuOpen(false); }}
 							className='block w-full text-center px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg'>
 							Hire Me
 						</a>
