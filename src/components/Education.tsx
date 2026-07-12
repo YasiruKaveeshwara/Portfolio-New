@@ -1,9 +1,10 @@
+import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Award, BookOpen } from "lucide-react";
 import { educationEntries, certifications } from "../constants";
 
-const Education = () => {
+const Education = React.memo(() => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -132,6 +133,6 @@ const Education = () => {
 			</div>
 		</section>
 	);
-};
+});
 
 export default Education;

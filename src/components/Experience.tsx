@@ -1,9 +1,10 @@
+import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, Calendar } from "lucide-react";
 import { experiences } from "../constants";
 
-const Experience = () => {
+const Experience = React.memo(() => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -77,6 +78,6 @@ const Experience = () => {
 			</div>
 		</section>
 	);
-};
+});
 
 export default Experience;

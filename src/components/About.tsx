@@ -13,7 +13,7 @@ const iconMap = {
 	Compass,
 } as const;
 
-const About = () => {
+const About = React.memo(() => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -107,6 +107,6 @@ const About = () => {
 			</div>
 		</section>
 	);
-};
+});
 
 export default About;

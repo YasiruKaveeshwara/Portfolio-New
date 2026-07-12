@@ -10,7 +10,24 @@ const ParticlesBackground = () => {
 		await loadSlim(engine);
 	}, []);
 
-	const options = useMemo(() => particlesConfig as unknown as ISourceOptions, []);
+	const options = useMemo(
+		() =>
+			({
+				...particlesConfig,
+				fpsLimit: 60,
+				particles: {
+					...((particlesConfig as Record<string, unknown>).particles as Record<string, unknown>),
+					number: {
+						value: 30,
+						density: {
+							enable: true,
+							area: 800,
+						},
+					},
+				},
+			}) as unknown as ISourceOptions,
+		[],
+	);
 
 	return (
 		<ParticlesProvider init={particlesInit}>

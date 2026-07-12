@@ -26,10 +26,17 @@ const Navigation = () => {
 	const location = useLocation();
 
 	useEffect(() => {
+		let ticking = false;
 		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 50);
+			if (!ticking) {
+				ticking = true;
+				requestAnimationFrame(() => {
+					setIsScrolled(window.scrollY > 50);
+					ticking = false;
+				});
+			}
 		};
-		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
@@ -113,7 +120,10 @@ const Navigation = () => {
 						<li key={item.label}>
 							<a
 								href={item.hash ? `/#${item.hash}` : item.href}
-								onClick={(e) => { handleHashNav(e, item.href, item.hash); setIsMobileMenuOpen(false); }}
+								onClick={(e) => {
+									handleHashNav(e, item.href, item.hash);
+									setIsMobileMenuOpen(false);
+								}}
 								className='block text-muted-foreground hover:text-foreground transition-colors'>
 								{item.label}
 							</a>
@@ -122,7 +132,10 @@ const Navigation = () => {
 					<li>
 						<a
 							href='/#contact'
-							onClick={(e) => { handleHashNav(e, "/", "contact"); setIsMobileMenuOpen(false); }}
+							onClick={(e) => {
+								handleHashNav(e, "/", "contact");
+								setIsMobileMenuOpen(false);
+							}}
 							className='block w-full text-center px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg'>
 							Hire Me
 						</a>

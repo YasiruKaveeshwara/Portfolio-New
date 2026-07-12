@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { skillCategories } from "../constants";
@@ -7,16 +7,6 @@ import { skillCategories } from "../constants";
 const Skills = () => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-	useEffect(() => {
-		// Add devicon stylesheet if not already present
-		if (!document.querySelector('link[href*="devicon"]')) {
-			const link = document.createElement("link");
-			link.rel = "stylesheet";
-			link.href = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css";
-			document.head.appendChild(link);
-		}
-	}, []);
 
 	return (
 		<section id='skills' className='relative sm:py-16 lg:py-20 overflow-hidden'>

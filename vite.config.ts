@@ -18,6 +18,10 @@ export default defineConfig(({ mode }) => ({
 		},
 	},
 	build: {
+		// Target modern browsers — skip unnecessary transpilation
+		target: "esnext",
+		// Use lightningcss for faster CSS minification
+		cssMinify: "lightningcss",
 		// Warn when a chunk exceeds 500 KB
 		chunkSizeWarningLimit: 500,
 		rollupOptions: {

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <title>Yasiru Kaveeshwara | Software Engineer</title>
-    <meta name="description" content="Portfolio of Yasiru Kaveeshwara - A software engineer crafting beautiful, performant, and scalable digital experiences." />
+    <meta name="description"
+      content="Portfolio of Yasiru Kaveeshwara - A software engineer crafting beautiful, performant, and scalable digital experiences." />
     <meta name="author" content="Yasiru Kaveeshwara" />
 
     <meta property="og:title" content="Yasiru Kaveeshwara | Software Engineer" />
-    <meta property="og:description" content="A software engineer crafting beautiful, performant, and scalable digital experiences." />
+    <meta property="og:description"
+      content="A software engineer crafting beautiful, performant, and scalable digital experiences." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
@@ -22,13 +24,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-    <!-- Google Fonts — loaded as <link> instead of CSS @import to avoid render blocking -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <!-- Preload LCP hero image — 1.4 MB SVG, start loading immediately -->
+    <link rel="preload" as="image" href="/photo.svg" type="image/svg+xml" />
+
+    <!-- Google Fonts — non-render-blocking with preload + onload swap -->
+    <link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    </noscript>
 
     <!-- Icon fonts — preloaded so they're ready when Skills page mounts -->
-    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />

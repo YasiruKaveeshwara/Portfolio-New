@@ -1,7 +1,8 @@
+import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const SectionDivider = () => {
+const SectionDivider = React.memo(() => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -15,6 +16,6 @@ const SectionDivider = () => {
 			/>
 		</div>
 	);
-};
+});
 
 export default SectionDivider;

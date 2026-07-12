@@ -97,7 +97,14 @@ const Hero = () => {
 						{/* Gradient ring */}
 						<div className='relative p-1 rounded-full bg-linear-to-br from-primary via-primary/50 to-primary/20'>
 							<div className='rounded-full overflow-hidden w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 ring-4 ring-[--color-primary]'>
-								<img src='/photo.svg' alt={personalInfo.fullName} className='w-full h-full object-cover' />
+								<img
+									src='/photo.svg'
+									alt={personalInfo.fullName}
+									className='w-full h-full object-cover'
+									width={384}
+									height={384}
+									fetchPriority='high'
+								/>
 							</div>
 						</div>
 						{/* Floating accent dots */}

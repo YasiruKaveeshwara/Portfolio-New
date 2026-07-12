@@ -1,3 +1,4 @@
+import React from "react";
 import { Github, Linkedin, Mail, MapPin, Heart, Facebook, MessageCircle } from "lucide-react";
 import { personalInfo } from "@/constants";
 import Logo from "./Logo";
@@ -15,7 +16,9 @@ const quickLinks = [
 	{ label: "Resume", href: "/resume" },
 ];
 
-const Footer = () => {
+const currentYear = new Date().getFullYear();
+
+const Footer = React.memo(() => {
 	return (
 		<footer className='py-10 border-t border-border'>
 			<div className='container px-4 sm:px-6'>
@@ -79,7 +82,7 @@ const Footer = () => {
 							</div>
 							<div className='flex items-center gap-2 text-xs text-muted-foreground mt-4'>
 								<span>
-									© {new Date().getFullYear()} {personalInfo.fullName}
+									© {currentYear} {personalInfo.fullName}
 								</span>
 								<span>•</span>
 								<span>Built with</span>
@@ -91,6 +94,6 @@ const Footer = () => {
 			</div>
 		</footer>
 	);
-};
+});
 
 export default Footer;
