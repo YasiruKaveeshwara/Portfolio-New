@@ -11,6 +11,7 @@ const ParticlesBackground = lazy(() => import("./components/ParticlesBackground"
 // Route-level code splitting — each page is its own JS chunk
 const SkillsPage = lazy(() => import("./pages/SkillsPage"));
 const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage"));
 const ResumePage = lazy(() => import("./pages/ResumePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -30,6 +31,7 @@ const App = () => (
 					<Route path='/' element={<Index />} />
 					<Route path='/skills' element={<SkillsPage />} />
 					<Route path='/projects' element={<ProjectsPage />} />
+					<Route path='/projects/:slug' element={<ProjectDetailPage />} />
 					<Route path='/resume' element={<ResumePage />} />
 					{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
 					<Route path='*' element={<NotFound />} />

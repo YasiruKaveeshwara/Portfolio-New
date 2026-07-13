@@ -2,78 +2,128 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, ArrowUpRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getWebProjects, Project } from "../constants";
+import { getWebProjects, getFeaturedProjects, Project } from "../constants";
 
 const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView: boolean; delay: number }) => (
 	<motion.article
 		initial={{ opacity: 0, y: 40 }}
 		animate={isInView ? { opacity: 1, y: 0 } : {}}
 		transition={{ delay, duration: 0.6 }}
-		className='group relative overflow-hidden rounded-2xl glass-card hover-glow '>
-		<div className='aspect-square overflow-hidden '>
-		{project.video ? (
-			<video
-				src={project.video}
-				poster={project.image}
-				autoPlay
-				muted
-				loop
-				playsInline
-				className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
-			/>
-		) : (
-			<img
-				src={project.image}
-				alt={project.title}
-				className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
-				loading='lazy'
-				decoding='async'
-			/>
-		)}
-			<div className='absolute inset-0 bg-linear-to-t from-background via-background/80 to-transparent' />
-		</div>
+		className='group relative overflow-hidden rounded-2xl glass-card hover-glow'>
+		<Link to={`/projects/${project.slug}`} className='block' aria-label={`View ${project.title} details`}>
+			<div className='aspect-square overflow-hidden'>
+				{project.video ?
+					<video
+						src={project.video}
+						poster={project.image}
+						autoPlay
+						muted
+						loop
+						playsInline
+						className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+					/>
+				:	<img
+						src={project.image}
+						alt={project.title}
+						className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+						loading='lazy'
+						decoding='async'
+					/>
+				}
+				<div className='absolute inset-0 bg-linear-to-t from-background via-background/80 to-transparent' />
+			</div>
 
-		<div className='absolute bottom-0 left-0 right-0 p-6'>
-			<h3 className='text-2xl font-bold mb-2 group-hover:text-primary transition-colors'>{project.title}</h3>
-			<p className='text-muted-foreground text-sm mb-4 line-clamp-2'>{project.description}</p>
+			<div className='absolute bottom-0 left-0 right-0 p-6'>
+				<h3 className='text-2xl font-bold mb-2 group-hover:text-primary transition-colors'>{project.title}</h3>
+				<p className='text-muted-foreground text-sm mb-4 line-clamp-2'>{project.description}</p>
 
-			<div className='flex items-center gap-3'>
-				{project.link && (
-					<a
-						href={project.link}
-						target='_blank'
-						rel='noopener noreferrer'
-						className='inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline'>
-						Live Demo <ArrowUpRight className='w-4 h-4' />
-					</a>
-				)}
+				<div className='flex items-center gap-3'>
+					{project.link && (
+						<span className='inline-flex items-center gap-1 text-sm font-medium text-primary'>
+							Live Demo <ArrowUpRight className='w-4 h-4' />
+						</span>
+					)}
 
-				<div className='flex flex-wrap gap-2 mb-3'>
-					{project.tags.map((tag: string) => (
+					<div className='flex flex-wrap gap-2 mb-3'>
+						{project.tags.map((tag: string) => (
+							<span key={tag} className='text-xs font-mono px-2 py-1 bg-primary/20 text-primary rounded'>
+								{tag}
+							</span>
+						))}
+					</div>
+					{project.github && (
+						<span className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground'>
+							<Github className='w-4 h-4' /> Code
+						</span>
+					)}
+				</div>
+			</div>
+		</Link>
+	</motion.article>
+);
+
+const FeaturedCard = ({ project, isInView, delay }: { project: Project; isInView: boolean; delay: number }) => (
+	<motion.article
+		initial={{ opacity: 0, y: 40 }}
+		animate={isInView ? { opacity: 1, y: 0 } : {}}
+		transition={{ delay, duration: 0.6 }}
+		className='group relative overflow-hidden rounded-2xl glass-card hover-glow col-span-full'>
+		<Link
+			to={`/projects/${project.slug}`}
+			className='block md:grid md:grid-cols-2 gap-0'
+			aria-label={`View ${project.title} details`}>
+			<div className='aspect-video md:aspect-auto md:h-full overflow-hidden'>
+				{project.video ?
+					<video
+						src={project.video}
+						poster={project.image}
+						autoPlay
+						muted
+						loop
+						playsInline
+						className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+					/>
+				:	<img
+						src={project.image}
+						alt={project.title}
+						className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+					/>
+				}
+			</div>
+			<div className='p-6 md:p-8 flex flex-col justify-center'>
+				<div className='flex flex-wrap gap-2 mb-4'>
+					{project.tags.map((tag) => (
 						<span key={tag} className='text-xs font-mono px-2 py-1 bg-primary/20 text-primary rounded'>
 							{tag}
 						</span>
 					))}
 				</div>
-				{project.github && (
-					<a
-						href={project.github}
-						target='_blank'
-						rel='noopener noreferrer'
-						className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
-						<Github className='w-4 h-4' /> Code
-					</a>
-				)}
+				<h3 className='text-2xl md:text-3xl font-bold mb-3 group-hover:text-primary transition-colors'>
+					{project.title}
+				</h3>
+				<p className='text-muted-foreground text-sm mb-6 leading-relaxed'>{project.description}</p>
+				<div className='flex items-center gap-3'>
+					{project.link && (
+						<span className='inline-flex items-center gap-2 text-sm font-medium text-primary'>
+							Live Demo <ArrowUpRight className='w-4 h-4' />
+						</span>
+					)}
+					{project.github && (
+						<span className='inline-flex items-center gap-2 text-sm font-medium text-muted-foreground'>
+							<Github className='w-4 h-4' /> Code
+						</span>
+					)}
+				</div>
 			</div>
-		</div>
+		</Link>
 	</motion.article>
 );
 
 const Projects = () => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
-
 	const webProjects = getWebProjects();
+	const featuredProjects = getFeaturedProjects();
 
 	return (
 		<section id='projects' className='relative py-10 sm:py-16 lg:py-20 overflow-hidden'>
@@ -95,14 +145,14 @@ const Projects = () => {
 					</p>
 				</motion.div>
 
-				{/* Featured projects */}
-				{/* <div className='grid lg:grid-cols-2 gap-6 mb-12'>
-					{getFeaturedProjects()
-						.slice(0, 3)
-						.map((project, i) => (
-							<ProjectCard key={project.title} project={project} isInView={isInView} delay={0.2 + i * 0.15} />
+				{/* Featured project (UniFinderLK) */}
+				{featuredProjects.length > 0 && (
+					<div className='grid gap-6 mb-12'>
+						{featuredProjects.map((project, i) => (
+							<FeaturedCard key={project.title} project={project} isInView={isInView} delay={0.2 + i * 0.15} />
 						))}
-				</div> */}
+					</div>
+				)}
 
 				{webProjects.length > 0 && (
 					<motion.div

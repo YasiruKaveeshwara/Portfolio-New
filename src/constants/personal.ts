@@ -23,7 +23,7 @@ export const personalInfo = {
 	},
 
 	// Professional Summary
-	bio: "Software engineering undergraduate at SLIIT building full-stack web applications on the MERN stack. Experienced through a 9-month internship and freelance work — with a growing focus on AI-powered systems and scalable architectures.",
+	bio: "Software engineering undergraduate at SLIIT building full-stack web applications on the MERN stack. Experienced through a 9-month internship and freelance work, with a growing focus on AI-powered systems and scalable architectures.",
 
 	// Resume PDF (from public folder)
 	resumePdf: "/Resume.pdf",

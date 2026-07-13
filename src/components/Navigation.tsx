@@ -61,7 +61,10 @@ const Navigation = () => {
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
 				isScrolled ? "glass-card py-4" : "py-6"
 			}`}>
-			<nav className='container px-4 sm:px-6 flex items-center justify-between'>
+			<nav
+				className='container px-4 sm:px-6 flex items-center justify-between'
+				role='navigation'
+				aria-label='Main navigation'>
 				<a href='/' className='flex items-center text-primary'>
 					<motion.div
 						className='flex items-center'
