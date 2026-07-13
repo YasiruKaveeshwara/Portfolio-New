@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Download, ExternalLink } from "lucide-react";
+import { Download } from "lucide-react";
 import { personalInfo } from "@/constants";
 
 const ResumePage = () => {
@@ -28,21 +28,13 @@ const ResumePage = () => {
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.2, duration: 0.6 }}
-							className='flex flex-col sm:flex-row gap-4 justify-center mb-12'>
+							className='flex justify-center mb-12 relative z-10'>
 							<a
 								href={personalInfo.resumePdf}
 								download
-								className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-all group'>
-								<Download className='w-5 h-5' />
+								className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-all hover:scale-105 group'>
+								<Download className='w-5 h-5 group-hover:-translate-y-0.5 transition-transform' />
 								Download Resume
-							</a>
-							<a
-								href={personalInfo.resumePdf}
-								target='_blank'
-								rel='noopener noreferrer'
-								className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:bg-secondary/80 transition-all group'>
-								<ExternalLink className='w-5 h-5' />
-								Open in New Tab
 							</a>
 						</motion.div>
 

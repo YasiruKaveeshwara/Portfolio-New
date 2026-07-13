@@ -11,6 +11,17 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 		transition={{ delay, duration: 0.6 }}
 		className='group relative overflow-hidden rounded-2xl glass-card hover-glow '>
 		<div className='aspect-square overflow-hidden '>
+		{project.video ? (
+			<video
+				src={project.video}
+				poster={project.image}
+				autoPlay
+				muted
+				loop
+				playsInline
+				className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+			/>
+		) : (
 			<img
 				src={project.image}
 				alt={project.title}
@@ -18,6 +29,7 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 				loading='lazy'
 				decoding='async'
 			/>
+		)}
 			<div className='absolute inset-0 bg-linear-to-t from-background via-background/80 to-transparent' />
 		</div>
 
@@ -29,6 +41,8 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 				{project.link && (
 					<a
 						href={project.link}
+						target='_blank'
+						rel='noopener noreferrer'
 						className='inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline'>
 						Live Demo <ArrowUpRight className='w-4 h-4' />
 					</a>
@@ -41,11 +55,15 @@ const ProjectCard = ({ project, isInView, delay }: { project: Project; isInView:
 						</span>
 					))}
 				</div>
-				<a
-					href={project.github}
-					className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
-					<Github className='w-4 h-4' /> Code
-				</a>
+				{project.github && (
+					<a
+						href={project.github}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
+						<Github className='w-4 h-4' /> Code
+					</a>
+				)}
 			</div>
 		</div>
 	</motion.article>

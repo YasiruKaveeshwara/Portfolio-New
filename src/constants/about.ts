@@ -4,36 +4,37 @@
  */
 
 export const aboutStats = [
-	{ value: "1", label: "Internship Completed" },
+	{ value: "9", label: "Months Professional Experience" },
 	{ value: "20+", label: "Projects Completed" },
+	{ value: "5+", label: "Tech Stacks in Production" },
 ];
 
 export const aboutDescription = {
 	shortBio:
-		"Software Engineering Undergraduate and MERN Stack Developer. I build scalable web applications and explore the intersection of full-stack development and new AI trends.",
+		"Software Engineering Undergraduate and Full-Stack Developer specializing in the MERN stack. I build scalable web applications and explore the intersection of full-stack development and AI-driven systems.",
 	longBio:
-		"I'm a software engineering student with a deep interest in building functional, user-centric web applications. My experience centers on the MERN stack, having moved from academic theory to real-world projects and internship roles. Beyond the code, I’ve always been fascinated by the laws of physics and the vastness of space. I enjoy applying first principles thinking often found in astrophysical theories and complex physical systems to software architecture and creative problem solving. For me, coding is just another way to explore and organize the logic of the universe. I thrive on solving complex technical challenges and building efficient, scalable solutions.",
+		"I'm a software engineering student at SLIIT with hands-on experience from a 9-month internship at Visionex Digital and ongoing freelance work. My core strength is building functional, user-centric web applications using the MERN stack — from database architecture to deployment. I've also developed an AI-powered Decision Support System (UniFinderLK) that combines hybrid NLP ranking with deterministic rules engines, demonstrating my ability to tackle complex, real-world problems beyond standard CRUD applications. I thrive on solving technical challenges, writing clean maintainable code, and continuously expanding my toolkit.",
 };
 
 export const highlights = [
 	{
 		icon: "Layers" as const,
 		title: "Full Stack Mastery",
-		desc: "End-to-end development using the MERN stack",
+		desc: "End-to-end development from database to deployment using the MERN stack",
 	},
 	{
 		icon: "Compass" as const,
 		title: "First Principles",
-		desc: "Solving complex problems from the ground up",
+		desc: "Breaking down complex problems and building solutions from the ground up",
 	},
 	{
 		icon: "Code2" as const,
 		title: "Maintainable Systems",
-		desc: "Focusing on clean, readable, and scalable code",
+		desc: "Writing clean, well-documented, and scalable code that teams can build on",
 	},
 	{
 		icon: "Zap" as const,
-		title: "Project Ready",
-		desc: "Experienced in moving from theory to production",
+		title: "Production Ready",
+		desc: "Shipped features in a professional team environment during 9-month internship",
 	},
 ];

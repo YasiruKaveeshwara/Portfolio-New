@@ -6,7 +6,7 @@
 export const personalInfo = {
 	// Basic Information
 	fullName: "Yasiru Kaveeshwara",
-	title: "Software Engineer | Full-Stack Developer",
+	title: "Associate Software Engineer | Full-Stack Developer",
 
 	// Contact Information
 	email: "kaveeshwaray@gmail.com",
@@ -23,7 +23,7 @@ export const personalInfo = {
 	},
 
 	// Professional Summary
-	bio: "Full-stack developer passionate about creating scalable applications and solving complex problems. Experienced in modern web technologies with a focus on clean code and user experience.",
+	bio: "Software engineering undergraduate at SLIIT building full-stack web applications on the MERN stack. Experienced through a 9-month internship and freelance work — with a growing focus on AI-powered systems and scalable architectures.",
 
 	// Resume PDF (from public folder)
 	resumePdf: "/Resume.pdf",

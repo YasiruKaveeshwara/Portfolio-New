@@ -8,6 +8,7 @@ export interface Project {
 	description: string;
 	tags: string[];
 	image: string;
+	video?: string;
 	link: string;
 	github: string;
 	featured: boolean;
@@ -16,6 +17,18 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		title: "UniFinderLK",
+		description:
+			"AI-powered Decision Support System for Sri Lankan university admissions — maps student dreams to viable academic pathways using hybrid NLP ranking, an AST rules engine, and Gemini-powered explainability.",
+		tags: ["React", "FastAPI", "Node.js", "MongoDB", "Python", "Gemini AI", "NLP"],
+		image: "https://res.cloudinary.com/dh3qafnzi/video/upload/so_0,w_800,h_450,c_fill/UniFinderLK_yohc2t.jpg",
+		video: "https://res.cloudinary.com/dh3qafnzi/video/upload/q_auto,f_auto/UniFinderLK_yohc2t.mp4",
+		link: "https://unifinderlk.vercel.app/",
+		github: "",
+		featured: true,
+		mobile: false,
+	},
+	{
 		title: "Shopping Eye",
 		description:
 			"Shopping mall navigation assistant with 3D shop finder, AI chatbot guidance, and live info updates built on the MERN stack.",
@@ -23,17 +36,6 @@ export const projects: Project[] = [
 		image: "https://res.cloudinary.com/dh3qafnzi/image/upload/v1732703488/Screenshot_2024-11-23_184750_u8u3bv.png",
 		link: "",
 		github: "https://github.com/YasiruKaveeshwara/Shopping-Eye-Extended_Shopping-Mall-Application",
-		featured: false,
-		mobile: false,
-	},
-	{
-		title: "Personal Portfolio",
-		description:
-			"Responsive portfolio with Framer Motion animations, EmailJS contact, JSON-powered projects, and Netlify CI/CD.",
-		tags: ["React.js", "Framer Motion", "EmailJS", "Netlify"],
-		image: "https://res.cloudinary.com/dh3qafnzi/image/upload/v1740584122/Screenshot_2025-02-26_210407_bhpxh5.png",
-		link: "",
-		github: "https://github.com/YasiruKaveeshwara/Portfolio",
 		featured: false,
 		mobile: false,
 	},
@@ -109,9 +111,9 @@ export const getFeaturedProjects = (): Project[] => {
 	return projects.filter((project) => project.featured);
 };
 
-// Get web projects
+// Get web projects (excludes featured to avoid duplication on the projects page)
 export const getWebProjects = (): Project[] => {
-	return projects.filter((project) => !project.mobile);
+	return projects.filter((project) => !project.mobile && !project.featured);
 };
 
 // Get mobile projects

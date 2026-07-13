@@ -40,13 +40,25 @@ const ProjectsPage = () => {
 										transition={{ delay: 0.1 + i * 0.1, duration: 0.6 }}
 										className='group relative overflow-hidden rounded-2xl glass-card hover-glow'>
 										<div className='aspect-video overflow-hidden'>
-											<img
-												src={project.image}
-												alt={project.title}
-												className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
-												loading='lazy'
-												decoding='async'
-											/>
+											{project.video ? (
+												<video
+													src={project.video}
+													poster={project.image}
+													autoPlay
+													muted
+													loop
+													playsInline
+													className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+												/>
+											) : (
+												<img
+													src={project.image}
+													alt={project.title}
+													className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+													loading='lazy'
+													decoding='async'
+												/>
+											)}
 											<div className='absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent' />
 										</div>
 
@@ -65,16 +77,20 @@ const ProjectsPage = () => {
 											<p className='text-muted-foreground text-sm mb-4 line-clamp-2'>{project.description}</p>
 
 											<div className='flex items-center gap-3'>
-												<a
-													href={project.link}
-													className='inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline'>
-													Live Demo <ArrowUpRight className='w-4 h-4' />
-												</a>
-												<a
-													href={project.github}
-													className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
-													<Github className='w-4 h-4' /> Code
-												</a>
+												{project.link && (
+													<a
+														href={project.link}
+														className='inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline'>
+														Live Demo <ArrowUpRight className='w-4 h-4' />
+													</a>
+												)}
+												{project.github && (
+													<a
+														href={project.github}
+														className='inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground'>
+														<Github className='w-4 h-4' /> Code
+													</a>
+												)}
 											</div>
 										</div>
 									</motion.article>
@@ -98,13 +114,25 @@ const ProjectsPage = () => {
 										transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
 										className='group p-6 glass-card rounded-2xl hover-glow transition-all duration-500'>
 										<div className='aspect-video overflow-hidden rounded-lg mb-4'>
-											<img
-												src={project.image}
-												alt={project.title}
-												className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
-												loading='lazy'
-												decoding='async'
-											/>
+											{project.video ? (
+												<video
+													src={project.video}
+													poster={project.image}
+													autoPlay
+													muted
+													loop
+													playsInline
+													className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+												/>
+											) : (
+												<img
+													src={project.image}
+													alt={project.title}
+													className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+													loading='lazy'
+													decoding='async'
+												/>
+											)}
 										</div>
 
 										<div className='flex items-start justify-between mb-4'>
@@ -152,13 +180,25 @@ const ProjectsPage = () => {
 										transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
 										className='group p-6 glass-card rounded-2xl hover-glow transition-all duration-500'>
 										<div className='aspect-9/16 max-h-100 overflow-hidden rounded-lg mb-4 mx-auto'>
-											<img
-												src={project.image}
-												alt={project.title}
-												className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
-												loading='lazy'
-												decoding='async'
-											/>
+											{project.video ? (
+												<video
+													src={project.video}
+													poster={project.image}
+													autoPlay
+													muted
+													loop
+													playsInline
+													className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+												/>
+											) : (
+												<img
+													src={project.image}
+													alt={project.title}
+													className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+													loading='lazy'
+													decoding='async'
+												/>
+											)}
 										</div>
 
 										<div className='flex items-start justify-between mb-4'>
